@@ -16,6 +16,9 @@ public class Ticket extends TicketOffice {
     @Column(name = "tipologia_biglietto")
     @Enumerated(EnumType.STRING)
     private TicketType ticketType;
+    @ManyToOne
+    @JoinColumn (name = "mezzo_di_trasporto")
+    private PublicTransport publicTransport;
 
     public Ticket() {
     }
