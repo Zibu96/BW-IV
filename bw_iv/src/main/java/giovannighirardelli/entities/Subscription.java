@@ -22,10 +22,25 @@ public class Subscription extends TicketOffice {
     }
 
 
-    public Subscription(String location, LocalDate emissionDate, double price, LocalDate expirationDate, SubscriptionType subscriptionType, Card card) {
-        super(location, emissionDate, price);
-        this.expirationDate = expirationDate;
+    public Subscription(String location, LocalDate emissionDate, SubscriptionType subscriptionType, Card card) {
+        super(location, emissionDate);
         this.subscriptionType = subscriptionType;
+        if(subscriptionType == SubscriptionType.MONTLY)
+
+        {
+
+            this.expirationDate = this.emissionDate.plusMonths(1);
+            super.price = 30.59;
+        }
+        else if (subscriptionType == SubscriptionType.WEEKLY)
+
+        {
+
+            this.expirationDate = this.emissionDate.plusWeeks(1);
+            super.price = 15.99;
+        }
+
+
         this.card = card;
     }
 
