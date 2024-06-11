@@ -24,6 +24,10 @@ public class PublicTransport {
     private List<Ticket> tickets;
 @ManyToMany (mappedBy = "publicTransports")
     private List<Route> routes;
+@ManyToMany (mappedBy = "publicTransports")
+private List<Maintenance> maintenances;
+@ManyToMany (mappedBy = "transports")
+private List<OnDuty> onDutyList;
 public PublicTransport(){}
     public PublicTransport(TypePublicTrasport typePublicTrasport, int max_capacity, StatePublicTrasport statePublicTrasport) {
         this.typePublicTrasport = typePublicTrasport;
