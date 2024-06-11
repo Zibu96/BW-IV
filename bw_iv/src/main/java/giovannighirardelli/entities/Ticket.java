@@ -23,11 +23,15 @@ public class Ticket extends TicketOffice {
     public Ticket() {
     }
 
-    public Ticket(String location, LocalDate emissionDate, double price, TicketType ticketType) {
-        super(location, emissionDate, price);
+    public Ticket(String location, LocalDate emissionDate, TicketType ticketType) {
+        super(location, emissionDate);
+
         this.validation = false;
         this.validationDate = null;
         this.ticketType = ticketType;
+        if(ticketType == TicketType.ORDINARY) super.price = 1.5;
+        else if (ticketType == TicketType.LONG_DISTANCE) super.price = 3.00;
+        else if (ticketType == TicketType.SHORT_DISTANCE) super.price = 2.00;
     }
 
 

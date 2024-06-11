@@ -20,7 +20,9 @@ public class Route {
     @Column(name = "tempo_effettivo_percorrenza")
     private double actualTravelTime;
     @ManyToMany
+
     @JoinTable(name = "route_public_transport", joinColumns = @JoinColumn(name = "tratta_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "mezzo_trasporto_id", nullable = false))
+
     private List<PublicTransport> publicTransports;
 
     public Route() {

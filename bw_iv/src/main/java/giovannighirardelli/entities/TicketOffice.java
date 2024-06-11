@@ -29,10 +29,10 @@ public abstract class TicketOffice {
     }
 
 
-    public TicketOffice(String location, LocalDate emissionDate, double price) {
+    public TicketOffice(String location, LocalDate emissionDate) {
         this.location = location;
         this.emissionDate = emissionDate;
-        this.price = price;
+
     }
 
 
