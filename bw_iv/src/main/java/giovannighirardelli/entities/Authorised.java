@@ -2,9 +2,11 @@ package giovannighirardelli.entities;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
 @DiscriminatorValue("rivenditore")
+@Table (name = "riveditore")
 public class Authorised extends Retailer{
     private String denomination;
     private Long license;

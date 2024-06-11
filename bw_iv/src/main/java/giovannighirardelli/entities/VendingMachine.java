@@ -1,12 +1,13 @@
 package giovannighirardelli.entities;
 
 import giovannighirardelli.enums.TaskStatus;
-import jakarta.persistence.DiscriminatorValue;
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 @Entity
 @DiscriminatorValue("distributore_automatico")
+@Table (name = "distributore_automatico")
 public class VendingMachine extends Retailer{
+    @Enumerated(EnumType.STRING)
     private TaskStatus taskStatus;
 public VendingMachine(){}
     public VendingMachine(String location, TaskStatus taskStatus) {

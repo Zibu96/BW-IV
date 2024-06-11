@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Entity
 @DiscriminatorValue("biglietto")
-
+@Table (name = "biglietto")
 public class Ticket extends TicketOffice {
     @Column(name = "validazione")
     private boolean validation;

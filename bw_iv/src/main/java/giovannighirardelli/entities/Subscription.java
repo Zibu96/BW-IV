@@ -7,6 +7,7 @@ import java.time.LocalDate;
 
 @Entity
 @DiscriminatorValue("abbonamento")
+@Table (name = "abbonamento")
 public class Subscription extends TicketOffice {
     @Column(name = "data_scadenza")
     private LocalDate expirationDate;
