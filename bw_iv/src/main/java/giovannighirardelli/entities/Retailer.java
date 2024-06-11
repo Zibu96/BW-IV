@@ -14,6 +14,9 @@ public abstract class Retailer {
     @Column (name = "distributore_id", nullable = false)
     protected UUID id;
 private String location;
+@ManyToOne
+@JoinColumn(name = "titolo_viaggio")
+private TicketOffice ticketOffice;
 public Retailer(){}
     public Retailer(String location) {
         this.location = location;

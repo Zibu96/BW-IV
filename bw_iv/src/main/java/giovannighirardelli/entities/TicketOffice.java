@@ -3,6 +3,7 @@ package giovannighirardelli.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -20,6 +21,8 @@ public abstract class TicketOffice {
     protected LocalDate emissionDate;
     @Column(name = "prezzo", nullable = false)
     protected double price;
+    @OneToMany (mappedBy = "ticketOffice")
+    private List<Retailer> retailerId;
 
 
     public TicketOffice() {
