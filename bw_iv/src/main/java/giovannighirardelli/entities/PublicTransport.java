@@ -20,7 +20,6 @@ public class PublicTransport {
 @Enumerated(EnumType.STRING)
     @Column(name = "stato_mezzo")
     private StatePublicTrasport statePublicTrasport;
-@OneToMany (mappedBy = "publicTrasport")
+@OneToMany (mappedBy = "publicTransport")
     private List<Ticket> tickets;
-
 }
