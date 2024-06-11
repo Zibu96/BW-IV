@@ -7,21 +7,25 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table (name = "servizio")
+@Table(name = "servizio")
 public class OnDuty {
     @Id
     @GeneratedValue
     protected UUID id;
-    @Column (name = "data_inizio")
+    @Column(name = "data_inizio")
     private LocalDate startDate;
-    @Column (name = "data_fine")
+    @Column(name = "data_fine")
     private LocalDate endDate;
-    @Column (name = "ore_servizio")
+    @Column(name = "ore_servizio")
     private double hourlyDailyService;
-    @ManyToMany @JoinTable (name = "trasportiId_inservizioId", joinColumns = @JoinColumn(name = "mezzo_trasporto", nullable = false), inverseJoinColumns = @JoinColumn(name = "in_servizio", nullable = false))
+    @ManyToMany
+    @JoinTable(name = "trasportiId_inServizioId", joinColumns = @JoinColumn(name = "mezzo_trasporto", nullable = false), inverseJoinColumns = @JoinColumn(name = "in_servizio", nullable = false))
 
     private List<PublicTransport> transports;
-public OnDuty (){}
+
+    public OnDuty() {
+    }
+
     public OnDuty(LocalDate startDate, LocalDate endDate, double hourlyDailyService) {
         this.startDate = startDate;
         this.endDate = endDate;
@@ -31,7 +35,6 @@ public OnDuty (){}
     public UUID getId() {
         return id;
     }
-
 
 
     public LocalDate getStartDate() {

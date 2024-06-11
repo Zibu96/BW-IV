@@ -6,23 +6,26 @@ import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table (name = "tratta")
+@Table(name = "tratta")
 public class Route {
     @Id
     @GeneratedValue
     protected UUID id;
-    @Column (name = "punto_partenza")
+    @Column(name = "punto_partenza")
     private String departureOfTheRoute;
-    @Column (name = "capolinea")
+    @Column(name = "capolinea")
     private String terminal;
-    @Column (name = "tempo_medio_percorrenza")
+    @Column(name = "tempo_medio_percorrenza")
     private double averageTravelTime;
-    @Column (name = "tempo_effetivo_percorrenza")
+    @Column(name = "tempo_effettivo_percorrenza")
     private double actualTravelTime;
     @ManyToMany
-    @JoinTable (name = "route_public_trasport", joinColumns = @JoinColumn(name = "tratta_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "mezzo_trasporto_id", nullable = false))
+    @JoinTable(name = "route_public_transport", joinColumns = @JoinColumn(name = "tratta_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "mezzo_trasporto_id", nullable = false))
     private List<PublicTransport> publicTransports;
-public Route (){}
+
+    public Route() {
+    }
+
     public Route(String departureOfTheRoute, String terminal, double averageTravelTime) {
         this.departureOfTheRoute = departureOfTheRoute;
         this.terminal = terminal;
@@ -32,7 +35,6 @@ public Route (){}
     public UUID getId() {
         return id;
     }
-
 
 
     public String getDepartureOfTheRoute() {
