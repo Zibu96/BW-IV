@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 @Entity
 @DiscriminatorValue("biglietto")
-
+@Table (name = "biglietto")
 public class Ticket extends TicketOffice {
     @Column(name = "validazione")
     private boolean validation;
@@ -16,15 +16,22 @@ public class Ticket extends TicketOffice {
     @Column(name = "tipologia_biglietto")
     @Enumerated(EnumType.STRING)
     private TicketType ticketType;
+    @ManyToOne
+    @JoinColumn (name = "mezzo_di_trasporto")
+    private PublicTransport publicTransport;
 
     public Ticket() {
     }
 
-    public Ticket(String location, LocalDate emissionDate, double price, TicketType ticketType) {
-        super(location, emissionDate, price);
+    public Ticket(String location, LocalDate emissionDate, TicketType ticketType) {
+        super(location, emissionDate);
+
         this.validation = false;
         this.validationDate = null;
         this.ticketType = ticketType;
+        if(ticketType == TicketType.ORDINARY) super.price = 1.5;
+        else if (ticketType == TicketType.LONG_DISTANCE) super.price = 3.00;
+        else if (ticketType == TicketType.SHORT_DISTANCE) super.price = 2.00;
     }
 
 
