@@ -4,18 +4,17 @@ import giovannighirardelli.enums.StatePublicTrasport;
 import giovannighirardelli.enums.TypePublicTrasport;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @Entity
-@Table (name = "mezzi_trasporto")
+@Table(name = "mezzi_trasporto")
 public class PublicTransport {
     @Id
     @GeneratedValue
     protected UUID id;
 
-    @Enumerated (EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     @Column(name = "tipo_trasporto_pubblico")
     private TypePublicTrasport typePublicTrasport;
     private int max_capacity;
@@ -24,48 +23,32 @@ public class PublicTransport {
     @Column(name = "stato_mezzo")
     private StatePublicTrasport statePublicTrasport;
 
-    @OneToMany (mappedBy = "publicTransport")
+    @OneToMany(mappedBy = "publicTransport")
     private List<Ticket> tickets;
 
-    @ManyToMany (mappedBy = "publicTransports")
-    private List<Route> routes;
+    @OneToMany(mappedBy = "publicTransport")
+    private List<TransportRoute> transportRoutes;
 
-    @ManyToMany (mappedBy = "publicTransports")
+    @OneToMany(mappedBy = "publicTransport")
+    private List<OnDuty> onDuties;
+
+    @OneToMany(mappedBy = "publicTransport")
     private List<Maintenance> maintenances;
 
-    @ManyToMany (mappedBy = "transports")
-    private List<OnDuty> onDutyList;
+    public PublicTransport() {
+    }
 
-public PublicTransport(){}
     public PublicTransport(TypePublicTrasport typePublicTrasport, int max_capacity, StatePublicTrasport statePublicTrasport) {
         this.typePublicTrasport = typePublicTrasport;
         this.max_capacity = max_capacity;
         this.statePublicTrasport = statePublicTrasport;
-        this.routes = new ArrayList<>();
-        this.maintenances = new ArrayList<>();
-        this.onDutyList = new ArrayList<>();
+
     }
 
     public UUID getId() {
         return id;
     }
 
-    
-    public List<Maintenance> getMaintenances() {
-        return maintenances;
-    }
-
-    public void setMaintenances(List<Maintenance> maintenances) {
-        this.maintenances = maintenances;
-    }
-
-    public List<OnDuty> getOnDutyList() {
-        return onDutyList;
-    }
-
-    public void setOnDutyList(List<OnDuty> onDutyList) {
-        this.onDutyList = onDutyList;
-    }
 
     public TypePublicTrasport getTypePublicTrasport() {
         return typePublicTrasport;
@@ -91,6 +74,30 @@ public PublicTransport(){}
         this.statePublicTrasport = statePublicTrasport;
     }
 
+    public List<TransportRoute> getRoutes() {
+        return transportRoutes;
+    }
+
+    public void setRoutes(List<TransportRoute> transportRoutes) {
+        this.transportRoutes = transportRoutes;
+    }
+
+    public List<OnDuty> getOnDuties() {
+        return onDuties;
+    }
+
+    public void setOnDuties(List<OnDuty> onDuties) {
+        this.onDuties = onDuties;
+    }
+
+    public List<Maintenance> getMaintenances() {
+        return maintenances;
+    }
+
+    public void setMaintenances(List<Maintenance> maintenances) {
+        this.maintenances = maintenances;
+    }
+
     public List<Ticket> getTickets() {
         return tickets;
     }
@@ -99,13 +106,6 @@ public PublicTransport(){}
         this.tickets = tickets;
     }
 
-    public List<Route> getRoutes() {
-        return routes;
-    }
-
-    public void setRoutes(List<Route> routes) {
-        this.routes = routes;
-    }
 
     @Override
     public String toString() {

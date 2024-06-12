@@ -1,6 +1,5 @@
 package giovannighirardelli.dao;
 
-import giovannighirardelli.entities.Retailer;
 import giovannighirardelli.entities.Route;
 import giovannighirardelli.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
@@ -21,7 +20,7 @@ public class RouteDao {
         transaction.begin();
         em.persist(route);
         transaction.commit();
-        System.out.println("Tratta con id: " +  route.getId() + " inserito correttamente nel db!");
+        System.out.println("Tratta con id: " + route.getId() + " inserito correttamente nel db!");
     }
 
     public Route findById(String id) {
@@ -38,5 +37,6 @@ public class RouteDao {
         transaction.commit();
         System.out.println("Tratta con id: " + found.getId() + "è stato correttamente eliminato");
     }
+
 
 }

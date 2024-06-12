@@ -1,6 +1,5 @@
 package giovannighirardelli.dao;
 
-import giovannighirardelli.entities.Card;
 import giovannighirardelli.entities.Maintenance;
 import giovannighirardelli.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
@@ -16,7 +15,7 @@ public class MaintanceDao {
         this.em = em;
     }
 
-    public void maintananceSave(Maintenance maintenance ) {
+    public void maintananceSave(Maintenance maintenance) {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         em.persist(maintenance);
@@ -38,4 +37,6 @@ public class MaintanceDao {
         transaction.commit();
         System.out.println("Manutenzione:" + found.getDescription() + "è stata correttamente eliminata");
     }
+
+
 }

@@ -3,8 +3,6 @@ package giovannighirardelli.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -24,37 +22,26 @@ public class OnDuty {
     @Column(name = "ore_servizio")
     private double hourlyDailyService;
 
+    @ManyToOne
+    @JoinColumn(name = "mezzo")
+    private PublicTransport publicTransport;
 
-    @ManyToMany
-    @JoinTable(name = "trasportiId_inservizioId", joinColumns = @JoinColumn(name = "mezzo_trasporto", nullable = false), inverseJoinColumns = @JoinColumn(name = "in_servizio", nullable = false))
-    private List<PublicTransport> transports;
+
+    public OnDuty() {
+    }
+
+    ;
 
 
-    public OnDuty(LocalDate startDate, LocalDate endDate, double hourlyDailyService) {
+    public OnDuty(LocalDate startDate, LocalDate endDate, double hourlyDailyService, PublicTransport publicTransport) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.hourlyDailyService = hourlyDailyService;
-        this.transports = new ArrayList<>();
-    }
-
-    public void addPublicTransport(PublicTransport publicTransport) {
-        this.getTransports().forEach(System.out::println);
-
-        this.getTransports().add(publicTransport);
-        System.out.println("Mezzo di trasporto aggiunto con successo alla rotta!");
+        this.publicTransport = publicTransport;
     }
 
     public UUID getId() {
         return id;
-    }
-
-    public List<PublicTransport> getTransports() {
-        return transports;
-    }
-
-
-    public void setTransports(List<PublicTransport> transports) {
-        this.transports = transports;
     }
 
 
@@ -82,6 +69,14 @@ public class OnDuty {
         this.hourlyDailyService = hourlyDailyService;
     }
 
+    public PublicTransport getPublicTransport() {
+        return publicTransport;
+    }
+
+    public void setPublicTransport(PublicTransport publicTransport) {
+        this.publicTransport = publicTransport;
+    }
+
     @Override
     public String toString() {
         return "OnDuty{" +
@@ -89,6 +84,7 @@ public class OnDuty {
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", hourlyDailyService=" + hourlyDailyService +
+                ", publicTransport=" + publicTransport +
                 '}';
     }
 }

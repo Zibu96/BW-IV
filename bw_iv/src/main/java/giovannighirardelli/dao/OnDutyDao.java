@@ -1,6 +1,5 @@
 package giovannighirardelli.dao;
 
-import giovannighirardelli.entities.Card;
 import giovannighirardelli.entities.OnDuty;
 import giovannighirardelli.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
@@ -37,4 +36,5 @@ public class OnDutyDao {
         transaction.commit();
         System.out.println("Servizio:" + found.getId() + "è stato correttamente eliminato");
     }
+
 }

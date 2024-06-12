@@ -2,7 +2,6 @@ package giovannighirardelli.entities;
 
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,15 +21,8 @@ public class Route {
     @Column(name = "tempo_medio_percorrenza")
     private double averageTravelTime;
 
-    @Column(name = "tempo_effetivo_percorrenza")
-
-    private double actualTravelTime;
-
-    @ManyToMany
-
-    @JoinTable(name = "route_public_transport", joinColumns = @JoinColumn(name = "tratta_id", nullable = false), inverseJoinColumns = @JoinColumn(name = "mezzo_trasporto_id", nullable = false))
-
-    private List<PublicTransport> publicTransports;
+    @OneToMany(mappedBy = "route")
+    private List<TransportRoute> transportRoutes;
 
 
     public Route() {
@@ -41,21 +33,11 @@ public class Route {
         this.terminal = terminal;
         this.averageTravelTime = averageTravelTime;
 
-        this.publicTransports = new ArrayList<>();
 
     }
 
     public UUID getId() {
         return id;
-    }
-
-    public List<PublicTransport> getPublicTransports() {
-        return publicTransports;
-    }
-
-
-    public void setPublicTransports(List<PublicTransport> publicTransports) {
-        this.publicTransports = publicTransports;
     }
 
 
@@ -83,19 +65,12 @@ public class Route {
         this.averageTravelTime = averageTravelTime;
     }
 
-    public double getActualTravelTime() {
-        return actualTravelTime;
+    public List<TransportRoute> getTransportRoutes() {
+        return transportRoutes;
     }
 
-    public void setActualTravelTime(double actualTravelTime) {
-        this.actualTravelTime = actualTravelTime;
-    }
-
-    public void addPublicTransportToaRoute(PublicTransport publicTransport) {
-        this.getPublicTransports().forEach(System.out::println);
-
-        this.getPublicTransports().add(publicTransport);
-        System.out.println("Mezzo di trasporto aggiunto con successo alla rotta!");
+    public void setTransportRoutes(List<TransportRoute> transportRoutes) {
+        this.transportRoutes = transportRoutes;
     }
 
     @Override
@@ -105,7 +80,7 @@ public class Route {
                 ", departureOfTheRoute='" + departureOfTheRoute + '\'' +
                 ", terminal='" + terminal + '\'' +
                 ", averageTravelTime=" + averageTravelTime +
-                ", actualTravelTime=" + actualTravelTime +
+
                 '}';
     }
 }
