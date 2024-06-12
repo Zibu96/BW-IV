@@ -36,7 +36,7 @@ public class Application {
 
 
         Ticket ticket = new Ticket("Tiburtina", LocalDate.now(), TicketType.ORDINARY);
- //    tod.ticketOfficeSave(ticket);
+//        tod.ticketOfficeSave(ticket);
 
 //        Subscription sub = new Subscription("Termini", LocalDate.now(), SubscriptionType.WEEKLY, cd.findById("057825cc-477b-4142-8e9f-ab36e3e5f2e5"));
 //        tod.ticketOfficeSave(sub);
@@ -54,21 +54,16 @@ public class Application {
 //        odd.ondDutySave(onDuty);
 
         VendingMachine vdMachine = new VendingMachine("Tiburtina", TaskStatus.ACTIVE);
-    //  rld.retailerSave(vdMachine);
+//        rld.retailerSave(vdMachine);
 
         Authorised aut = new Authorised("Termini", "Tabacchi", 3568213L);
-//       rld.retailerSave(aut);
-       rld.findById("00713ec8-f763-4b30-8d23-a86f5fbf2142");
-       // aut.setTicketOffice( tod.findById("1cfa07f3-a657-4682-a769-1d2777fef7ea"));
-     //  rld.retailerSave(aut);
+//        rld.retailerSave(aut);
+        rld.findById("f3a84d87-09e6-4c37-bd38-399d189a3269");
+        aut.setTicketOffice(tod.findById("3ada0c08-e436-4c9b-a2f0-8ee8d7ad7474"));
+        rld.retailerSave(aut);
 
         qd.findAllTicketsFromVendingMachine(LocalDate.now()).forEach(System.out::println);
         qd.findAllTicketsFromAuthorised(LocalDate.now()).forEach(System.out::println);
-
-
-
-
-
 
 
     }
