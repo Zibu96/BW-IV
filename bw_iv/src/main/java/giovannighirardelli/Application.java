@@ -2,10 +2,7 @@ package giovannighirardelli;
 
 import giovannighirardelli.dao.*;
 import giovannighirardelli.entities.*;
-import giovannighirardelli.enums.StatePublicTrasport;
-import giovannighirardelli.enums.TaskStatus;
-import giovannighirardelli.enums.TicketType;
-import giovannighirardelli.enums.TypePublicTrasport;
+import giovannighirardelli.enums.*;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -29,17 +26,17 @@ public class Application {
         QueriesUtilitiesDao qd = new QueriesUtilitiesDao(em);
 
         User user = new User("Christian", "Martucci", LocalDate.of(2001, 9, 11));
-//        ud.userSave(user);
+    //   ud.userSave(user);
 
         Card card = new Card(LocalDate.now(), user);
-//        cd.cardSave(card);
+//       cd.cardSave(card);
 
 
         Ticket ticket = new Ticket("Tiburtina", LocalDate.now(), TicketType.ORDINARY);
  //    tod.ticketOfficeSave(ticket);
 
-//        Subscription sub = new Subscription("Termini", LocalDate.now(), SubscriptionType.WEEKLY, cd.findById("057825cc-477b-4142-8e9f-ab36e3e5f2e5"));
-//        tod.ticketOfficeSave(sub);
+ Subscription sub = new Subscription("Termini", LocalDate.now(), SubscriptionType.WEEKLY, cd.findById("60ee4d5c-c045-4645-b2f3-19cb73c62b6b"));
+//      tod.ticketOfficeSave(sub);
 
         PublicTransport pubTr = new PublicTransport(TypePublicTrasport.BUS, 69, StatePublicTrasport.ON_DUTY);
 //        ptd.publicTransportSave(pubTr);
@@ -58,12 +55,13 @@ public class Application {
 
         Authorised aut = new Authorised("Termini", "Tabacchi", 3568213L);
 //       rld.retailerSave(aut);
-       rld.findById("00713ec8-f763-4b30-8d23-a86f5fbf2142");
-       // aut.setTicketOffice( tod.findById("1cfa07f3-a657-4682-a769-1d2777fef7ea"));
+      // rld.findById("00713ec8-f763-4b30-8d23-a86f5fbf2142");
+       // aut.setTicketOffice( tod.findById("e14c594f-324e-4253-9f7b-ff3d3e5670e5"));
      //  rld.retailerSave(aut);
 
-        qd.findAllTicketsFromVendingMachine(LocalDate.now()).forEach(System.out::println);
-        qd.findAllTicketsFromAuthorised(LocalDate.now()).forEach(System.out::println);
+       qd.findAllTicketOfficeFromVendingMachine(LocalDate.now()).forEach(System.out::println);
+        qd.findAllTicketOfficeFromAuthorised(LocalDate.now()).forEach(System.out::println);
+
 
 
 
