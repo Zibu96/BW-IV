@@ -62,6 +62,7 @@ public class Ticket extends TicketOffice {
     @Override
     public String toString() {
         return "Ticket{" +
+                "id"+ titleId +
                 "validation=" + validation +
                 ", validationDate=" + validationDate +
                 ", ticketType=" + ticketType +

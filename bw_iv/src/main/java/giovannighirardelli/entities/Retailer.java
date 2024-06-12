@@ -22,6 +22,14 @@ public Retailer(){}
         this.location = location;
     }
 
+    public TicketOffice getTicketOffice() {
+        return ticketOffice;
+    }
+
+    public void setTicketOffice(TicketOffice ticketOffice) {
+        this.ticketOffice = ticketOffice;
+    }
+
     public UUID getId() {
         return id;
     }
