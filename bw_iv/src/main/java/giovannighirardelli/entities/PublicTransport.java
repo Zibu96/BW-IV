@@ -4,6 +4,7 @@ import giovannighirardelli.enums.StatePublicTrasport;
 import giovannighirardelli.enums.TypePublicTrasport;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -13,33 +14,58 @@ public class PublicTransport {
     @Id
     @GeneratedValue
     protected UUID id;
+
     @Enumerated (EnumType.STRING)
     @Column(name = "tipo_trasporto_pubblico")
     private TypePublicTrasport typePublicTrasport;
     private int max_capacity;
-@Enumerated(EnumType.STRING)
+
+    @Enumerated(EnumType.STRING)
     @Column(name = "stato_mezzo")
     private StatePublicTrasport statePublicTrasport;
-@OneToMany (mappedBy = "publicTransport")
+
+    @OneToMany (mappedBy = "publicTransport")
     private List<Ticket> tickets;
-@ManyToMany (mappedBy = "publicTransports")
+
+    @ManyToMany (mappedBy = "publicTransports")
     private List<Route> routes;
-@ManyToMany (mappedBy = "publicTransports")
-private List<Maintenance> maintenances;
-@ManyToMany (mappedBy = "transports")
-private List<OnDuty> onDutyList;
+
+    @ManyToMany (mappedBy = "publicTransports")
+    private List<Maintenance> maintenances;
+
+    @ManyToMany (mappedBy = "transports")
+    private List<OnDuty> onDutyList;
+
 public PublicTransport(){}
     public PublicTransport(TypePublicTrasport typePublicTrasport, int max_capacity, StatePublicTrasport statePublicTrasport) {
         this.typePublicTrasport = typePublicTrasport;
         this.max_capacity = max_capacity;
         this.statePublicTrasport = statePublicTrasport;
+        this.routes = new ArrayList<>();
+        this.maintenances = new ArrayList<>();
+        this.onDutyList = new ArrayList<>();
     }
 
     public UUID getId() {
         return id;
     }
 
+    
+    public List<Maintenance> getMaintenances() {
+        return maintenances;
+    }
 
+    public void setMaintenances(List<Maintenance> maintenances) {
+        this.maintenances = maintenances;
+    }
+
+    public List<OnDuty> getOnDutyList() {
+        return onDutyList;
+    }
+
+    public void setOnDutyList(List<OnDuty> onDutyList) {
+        this.onDutyList = onDutyList;
+    }
 
     public TypePublicTrasport getTypePublicTrasport() {
         return typePublicTrasport;
