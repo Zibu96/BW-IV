@@ -32,6 +32,7 @@ public class Route {
         this.departureOfTheRoute = departureOfTheRoute;
         this.terminal = terminal;
         this.averageTravelTime = averageTravelTime;
+
     }
 
     public UUID getId() {

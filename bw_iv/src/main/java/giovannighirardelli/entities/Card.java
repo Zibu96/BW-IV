@@ -29,10 +29,10 @@ public class Card {
     }
 
 
-    public Card(LocalDate emissionDate, LocalDate expirationDate, boolean validation, User user) {
+    public Card(LocalDate emissionDate, User user) {
         this.emissionDate = emissionDate;
-        this.expirationDate = expirationDate;
-        this.validation = validation;
+        this.expirationDate = emissionDate.plusYears(1);
+        this.validation = false;
         this.user = user;
     }
 
