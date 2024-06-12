@@ -2,7 +2,10 @@ package giovannighirardelli;
 
 import giovannighirardelli.dao.*;
 import giovannighirardelli.entities.*;
-import giovannighirardelli.enums.*;
+import giovannighirardelli.enums.StatePublicTrasport;
+import giovannighirardelli.enums.TaskStatus;
+import giovannighirardelli.enums.TicketType;
+import giovannighirardelli.enums.TypePublicTrasport;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -26,16 +29,16 @@ public class Application {
         QueriesUtilitiesDao qd = new QueriesUtilitiesDao(em);
 
         User user = new User("Christian", "Martucci", LocalDate.of(2001, 9, 11));
-    //   ud.userSave(user);
+        //   ud.userSave(user);
 
         Card card = new Card(LocalDate.now(), user);
 //       cd.cardSave(card);
 
 
         Ticket ticket = new Ticket("Tiburtina", LocalDate.now(), TicketType.ORDINARY);
- //    tod.ticketOfficeSave(ticket);
+        //    tod.ticketOfficeSave(ticket);
 
- Subscription sub = new Subscription("Termini", LocalDate.now(), SubscriptionType.WEEKLY, cd.findById("60ee4d5c-c045-4645-b2f3-19cb73c62b6b"));
+//        Subscription sub = new Subscription("Termini", LocalDate.now(), SubscriptionType.WEEKLY, cd.findById("60ee4d5c-c045-4645-b2f3-19cb73c62b6b"));
 //      tod.ticketOfficeSave(sub);
 
         PublicTransport pubTr = new PublicTransport(TypePublicTrasport.BUS, 69, StatePublicTrasport.ON_DUTY);
@@ -51,22 +54,18 @@ public class Application {
 //        odd.ondDutySave(onDuty);
 
         VendingMachine vdMachine = new VendingMachine("Tiburtina", TaskStatus.ACTIVE);
-    //  rld.retailerSave(vdMachine);
+        //  rld.retailerSave(vdMachine);
 
         Authorised aut = new Authorised("Termini", "Tabacchi", 3568213L);
-//       rld.retailerSave(aut);
-      // rld.findById("00713ec8-f763-4b30-8d23-a86f5fbf2142");
-       // aut.setTicketOffice( tod.findById("e14c594f-324e-4253-9f7b-ff3d3e5670e5"));
-     //  rld.retailerSave(aut);
+//        rld.retailerSave(vdMachine);
+//        rld.findById("f3a84d87-09e6-4c37-bd38-399d189a3269");
+//        vdMachine.setTicketOffice(tod.findById("3ada0c08-e436-4c9b-a2f0-8ee8d7ad7474"));
+//        rld.retailerSave(vdMachine);
 
-       qd.findAllTicketOfficeFromVendingMachine(LocalDate.now(), "Termini");
-        qd.findAllTicketOfficeFromAuthorised(LocalDate.now(), "Termini");
+//       qd.findAllTicketOfficeFromVendingMachine(LocalDate.now(), "Termini");
+//        qd.findAllTicketOfficeFromAuthorised(LocalDate.now(), "Termini");
 
-
-
-
-
-
+        qd.findAllTicketsFromVendingMachine(LocalDate.now().minusDays(1), LocalDate.now().plusDays(1)).forEach(System.out::println);
 
 
     }
