@@ -59,8 +59,8 @@ public class Application {
        // aut.setTicketOffice( tod.findById("e14c594f-324e-4253-9f7b-ff3d3e5670e5"));
      //  rld.retailerSave(aut);
 
-       qd.findAllTicketOfficeFromVendingMachine(LocalDate.now()).forEach(System.out::println);
-        qd.findAllTicketOfficeFromAuthorised(LocalDate.now()).forEach(System.out::println);
+       qd.findAllTicketOfficeFromVendingMachine(LocalDate.now(), "Termini");
+        qd.findAllTicketOfficeFromAuthorised(LocalDate.now(), "Termini");
 
 
 

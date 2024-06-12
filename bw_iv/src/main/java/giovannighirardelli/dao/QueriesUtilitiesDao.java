@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class QueriesUtilitiesDao {
@@ -28,20 +29,38 @@ public class QueriesUtilitiesDao {
 //        query.setParameter("intervalloTempo", intervalloTempo);
 //        return query.getResultList();
 //    }
-    public List<Subscription> findAllSubscriptionFromAuthorised (LocalDate intervalloTempo){
-        TypedQuery<Subscription> query = em.createQuery("SELECT a FROM Subcription a WHERE a.ticketOffice.emissionDate = :intervalloTempo", Subscription.class);
-       query.setParameter("intervalloTempo", intervalloTempo);
-       return query.getResultList();
-   }
-    public List<TicketOffice> findAllTicketOfficeFromVendingMachine (LocalDate intervalloTempo){
-        TypedQuery<TicketOffice> query = em.createQuery("SELECT  a.ticketOffice, COUNT(a.ticketOffice) FROM VendingMachine a WHERE a.ticketOffice.emissionDate = :intervalloTempo ", TicketOffice.class);
+//    public List<Subscription> findAllSubscriptionFromAuthorised (LocalDate intervalloTempo){
+//        TypedQuery<Subscription> query = em.createQuery("SELECT a FROM Subcription a WHERE a.ticketOffice.emissionDate = :intervalloTempo", Subscription.class);
+//       query.setParameter("intervalloTempo", intervalloTempo);
+//       return query.getResultList();
+//   }
+    public void findAllTicketOfficeFromVendingMachine (LocalDate intervalloTempo, String location){
+
+        TypedQuery<TicketOffice> query = em.createQuery("SELECT  a.ticketOffice FROM VendingMachine a WHERE a.ticketOffice.emissionDate = :intervalloTempo AND LOWER(a.location) LIKE LOWER(:location)", TicketOffice.class);
         query.setParameter("intervalloTempo", intervalloTempo);
-        return query.getResultList();
+        query.setParameter("location", location);
+        List<TicketOffice> resultList = query.getResultList();
+long ticketCount =
+        resultList.stream().filter(el->el instanceof Ticket).count();
+long subscriptionCount =
+        resultList.stream().filter(el->el instanceof Subscription).count();
+        System.out.println("Numero abbonamenti: " + subscriptionCount);
+        System.out.println("Numero biglietti:" + ticketCount);
+        resultList.forEach(System.out::println);
     }
-    public List<TicketOffice> findAllTicketOfficeFromAuthorised (LocalDate intervalloTempo){
-        TypedQuery<TicketOffice> query = em.createQuery("SELECT a.ticketOffice FROM Authorised a WHERE a.ticketOffice.emissionDate = :intervalloTempo", TicketOffice.class);
+    public void findAllTicketOfficeFromAuthorised (LocalDate intervalloTempo, String location){
+        TypedQuery<TicketOffice> query = em.createQuery("SELECT a.ticketOffice FROM Authorised a WHERE a.ticketOffice.emissionDate = :intervalloTempo AND LOWER(a.location) LIKE LOWER(:location)", TicketOffice.class);
         query.setParameter("intervalloTempo", intervalloTempo);
-        return query.getResultList();
+        query.setParameter("location", location);
+        List<TicketOffice> resultList = query.getResultList();
+        long ticketCount =
+                resultList.stream().filter(el->el instanceof Ticket).count();
+        long subscriptionCount =
+                resultList.stream().filter(el->el instanceof Subscription).count();
+        System.out.println("Numero abbonamenti: " + subscriptionCount);
+        System.out.println("Numero biglietti:" + ticketCount);
+
+        resultList.forEach(System.out::println);
     }
 
 
