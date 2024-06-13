@@ -3,7 +3,7 @@ package giovannighirardelli.dao;
 import giovannighirardelli.entities.Maintenance;
 import giovannighirardelli.entities.OnDuty;
 import giovannighirardelli.entities.PublicTransport;
-import giovannighirardelli.enums.StatePublicTrasport;
+import giovannighirardelli.enums.StatePublicTransport;
 import giovannighirardelli.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -42,22 +42,22 @@ public class PublicTransportDao {
         System.out.println("Mezzo: " + publicTransport.getTypePublicTrasport() + " è stato correttamente eliminato");
     }
 
-    public void findAllPublicTransportByStatus(StatePublicTrasport statePublicTrasport) {
-        TypedQuery<PublicTransport> query = em.createQuery("SELECT a FROM PublicTransport a WHERE a.statePublicTrasport = :state", PublicTransport.class);
-        query.setParameter("state", statePublicTrasport);
+    public void findAllPublicTransportByStatus(StatePublicTransport statePublicTransport) {
+        TypedQuery<PublicTransport> query = em.createQuery("SELECT a FROM PublicTransport a WHERE a.statePublicTransport = :state", PublicTransport.class);
+        query.setParameter("state", statePublicTransport);
 
         if (query.getResultList().isEmpty())
-            System.out.println("Nessun mezzo è attualmente in questo stato: " + statePublicTrasport);
+            System.out.println("Nessun mezzo è attualmente in questo stato: " + statePublicTransport);
         else query.getResultList().forEach(System.out::println);
     }
 
     public void getAPublicTransportStatus(String id) {
-        TypedQuery<StatePublicTrasport> query = em.createQuery("SELECT a.statePublicTrasport FROM PublicTransport a WHERE a.id = :id", StatePublicTrasport.class);
+        TypedQuery<StatePublicTransport> query = em.createQuery("SELECT a.statePublicTransport FROM PublicTransport a WHERE a.id = :id", StatePublicTransport.class);
         query.setParameter("id", UUID.fromString(id));
 
         if (query.getResultList().isEmpty()) System.out.println("Nessun mezzo trovato con id: " + id);
         else
-            query.getResultList().forEach(statePublicTrasport -> System.out.println("Il mezzo con id: " + id + " è " + statePublicTrasport));
+            query.getResultList().forEach(statePublicTransport -> System.out.println("Il mezzo con id: " + id + " è " + statePublicTransport));
     }
 
     public void getBacklogOfTransportStatus(String id) {

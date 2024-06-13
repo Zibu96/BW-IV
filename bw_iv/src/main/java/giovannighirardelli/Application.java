@@ -2,7 +2,7 @@ package giovannighirardelli;
 
 import giovannighirardelli.dao.*;
 import giovannighirardelli.entities.*;
-import giovannighirardelli.enums.StatePublicTrasport;
+import giovannighirardelli.enums.StatePublicTransport;
 import giovannighirardelli.enums.TaskStatus;
 import giovannighirardelli.enums.TypePublicTrasport;
 import jakarta.persistence.EntityManager;
@@ -41,7 +41,7 @@ public class Application {
         // Subscription sub = new Subscription("Termini", LocalDate.now(), SubscriptionType.WEEKLY, cd.findById("924ce772-91d3-4d3b-948c-e640b35454a8"));
         // tod.ticketOfficeSave(sub);
 
-        PublicTransport pubTr = new PublicTransport(TypePublicTrasport.TRAM, 81, StatePublicTrasport.MAINTENANCE);
+        PublicTransport pubTr = new PublicTransport(TypePublicTrasport.TRAM, 81, StatePublicTransport.MAINTENANCE);
 //        ptd.publicTransportSave(pubTr);
 
         Route route = new Route("Termini", "Tiburtina", 2.5);
@@ -79,13 +79,13 @@ public class Application {
 //            System.out.println(err.getMessage());
 //        }
 //
-//        ptd.findAllPublicTransportByStatus(StatePublicTrasport.MAINTENANCE);
+//        ptd.findAllPublicTransportByStatus(StatePublicTransport.MAINTENANCE);
 //
 //        ptd.getAPublicTransportStatus("e5e57aec-1b8d-4a1d-a089-335fcda54a57");
 
 
 //        ptd.getBacklogOfTransportStatus("0f0fd584-1a4c-44fa-8c64-2e08c2c83d0d");
-//        ptd.findAllPublicTransportByStatus(StatePublicTrasport.MAINTENANCE);
+//        ptd.findAllPublicTransportByStatus(StatePublicTransport.MAINTENANCE);
 //        ptd.getAPublicTransportStatus("0f0fd584-1a4c-44fa-8c64-2e08c2c83d0d");
     }
 

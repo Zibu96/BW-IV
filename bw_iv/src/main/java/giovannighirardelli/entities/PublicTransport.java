@@ -1,6 +1,6 @@
 package giovannighirardelli.entities;
 
-import giovannighirardelli.enums.StatePublicTrasport;
+import giovannighirardelli.enums.StatePublicTransport;
 import giovannighirardelli.enums.TypePublicTrasport;
 import jakarta.persistence.*;
 
@@ -21,7 +21,7 @@ public class PublicTransport {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "stato_mezzo")
-    private StatePublicTrasport statePublicTrasport;
+    private StatePublicTransport statePublicTransport;
 
     @OneToMany(mappedBy = "publicTransport")
     private List<Ticket> tickets;
@@ -38,10 +38,10 @@ public class PublicTransport {
     public PublicTransport() {
     }
 
-    public PublicTransport(TypePublicTrasport typePublicTrasport, int max_capacity, StatePublicTrasport statePublicTrasport) {
+    public PublicTransport(TypePublicTrasport typePublicTrasport, int max_capacity, StatePublicTransport statePublicTransport) {
         this.typePublicTrasport = typePublicTrasport;
         this.max_capacity = max_capacity;
-        this.statePublicTrasport = statePublicTrasport;
+        this.statePublicTransport = statePublicTransport;
 
     }
 
@@ -66,12 +66,12 @@ public class PublicTransport {
         this.max_capacity = max_capacity;
     }
 
-    public StatePublicTrasport getStatePublicTrasport() {
-        return statePublicTrasport;
+    public StatePublicTransport getStatePublicTrasport() {
+        return statePublicTransport;
     }
 
-    public void setStatePublicTrasport(StatePublicTrasport statePublicTrasport) {
-        this.statePublicTrasport = statePublicTrasport;
+    public void setStatePublicTrasport(StatePublicTransport statePublicTransport) {
+        this.statePublicTransport = statePublicTransport;
     }
 
     public List<TransportRoute> getRoutes() {
@@ -110,7 +110,7 @@ public class PublicTransport {
     @Override
     public String toString() {
         return "PublicTransport{" +
-                "statePublicTrasport=" + statePublicTrasport +
+                "statePublicTrasport=" + statePublicTransport +
                 ", max_capacity=" + max_capacity +
                 ", typePublicTrasport=" + typePublicTrasport +
                 ", id=" + id +

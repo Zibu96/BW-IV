@@ -1,5 +1,5 @@
 package giovannighirardelli.enums;
 
-public enum StatePublicTrasport {
+public enum StatePublicTransport {
     MAINTENANCE, ON_DUTY;
 }
