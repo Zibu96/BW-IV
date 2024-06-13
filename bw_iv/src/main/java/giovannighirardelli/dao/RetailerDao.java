@@ -2,6 +2,8 @@ package giovannighirardelli.dao;
 
 import giovannighirardelli.entities.OnDuty;
 import giovannighirardelli.entities.Retailer;
+import giovannighirardelli.entities.VendingMachine;
+import giovannighirardelli.enums.TaskStatus;
 import giovannighirardelli.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
@@ -38,4 +40,16 @@ public class RetailerDao {
         transaction.commit();
         System.out.println("Rivenditore: " + found.getId() + "è stato correttamente eliminato");
     }
+
+    public void setStatusOfVendingMachine(TaskStatus taskStatus, String id) {
+        VendingMachine vendingMachine = em.find(VendingMachine.class, UUID.fromString(id));
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        if (vendingMachine == null) throw new NotFoundException(id);
+        else vendingMachine.setTaskStatus(taskStatus);
+        transaction.commit();
+
+        System.out.println("Rivenditore automatico: " + id + " ora è: " + taskStatus);
+    }
+
 }

@@ -3,6 +3,7 @@ package giovannighirardelli;
 import giovannighirardelli.dao.*;
 import giovannighirardelli.entities.*;
 import giovannighirardelli.enums.*;
+import giovannighirardelli.exceptions.NotFoundException;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -71,7 +72,15 @@ public class Application {
 
       // qd.findAllTicketFromRetailer(LocalDate.now().minusDays(2), LocalDate.now().plusDays(2), retailer.getId().toString());
 
-       qd.subscriptionValidationCheck("924ce772-91d3-4d3b-948c-e640b35454a8");
+       // qd.subscriptionValidationCheck("924ce772-91d3-4d3b-948c-e640b35454a8");
+
+       try {
+           rld.setStatusOfVendingMachine(TaskStatus.ACTIVE, "492269d4-1d3e-428e-a497-71c996f21e89");
+       } catch (NotFoundException err) {
+           System.out.println(err.getMessage());
+       }
+
+
     }
 
 }
