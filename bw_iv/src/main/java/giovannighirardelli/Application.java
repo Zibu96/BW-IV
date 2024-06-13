@@ -80,6 +80,9 @@ public class Application {
            System.out.println(err.getMessage());
        }
 
+       ptd.findAllPublicTransportByStatus(StatePublicTrasport.MAINTENANCE);
+
+       ptd.getAPublicTransportStatus("e5e57aec-1b8d-4a1d-a089-335fcda54a57");
 
     }
 
