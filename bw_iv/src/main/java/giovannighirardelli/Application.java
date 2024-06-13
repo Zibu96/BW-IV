@@ -69,7 +69,9 @@ public class Application {
 
 
 
-       qd.findAllTicketFromRetailer(LocalDate.now().minusDays(2), LocalDate.now().plusDays(2), retailer.getId().toString());
+      // qd.findAllTicketFromRetailer(LocalDate.now().minusDays(2), LocalDate.now().plusDays(2), retailer.getId().toString());
+
+       qd.subscriptionValidationCheck("924ce772-91d3-4d3b-948c-e640b35454a8");
     }
 
 }

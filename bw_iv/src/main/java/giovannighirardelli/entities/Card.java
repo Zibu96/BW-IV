@@ -13,15 +13,20 @@ public class Card {
     @GeneratedValue
     @Column(name = "tessera_id", nullable = false)
     private UUID cardId;
+
     @Column(name = "data_emissione", nullable = false)
     private LocalDate emissionDate;
+
     @Column(name = "data_scadenza")
     private LocalDate expirationDate;
-    @Column(name = "validità", nullable = false)
+
+    @Column(name = "validità")
     private boolean validation;
+
     @ManyToOne
     @JoinColumn(name = "utente")
     private User user;
+
     @OneToMany(mappedBy = "card")
     private List<Subscription> subscriptions;
 
@@ -32,8 +37,9 @@ public class Card {
     public Card(LocalDate emissionDate, User user) {
         this.emissionDate = emissionDate;
         this.expirationDate = emissionDate.plusYears(1);
-        this.validation = false;
         this.user = user;
+        if (this.expirationDate.isBefore(LocalDate.now())) this.validation = true;
+        else if (this.expirationDate.isAfter(LocalDate.now())) this.validation = false;
     }
 
     public UUID getCardId() {

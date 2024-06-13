@@ -59,5 +59,15 @@ public class QueriesUtilitiesDao {
 //        resultList.forEach(System.out::println);
     }
 
+    public void subscriptionValidationCheck (String cardId) {
+        LocalDate today = LocalDate.now();
+        TypedQuery<Subscription> query = em.createQuery("SELECT a FROM Subscription a WHERE a.card.cardId = :cardId AND a.expirationDate > :today", Subscription.class);
+        query.setParameter("today", today);
+        query.setParameter("cardId", UUID.fromString(cardId));
+
+        if (query.getResultList().isEmpty()) System.out.println("Nessun abbonamento valido!");
+        else query.getResultList().forEach(subscription -> System.out.println("Abbonamento con id: " + subscription.getTitleId() + " è attivo"));
+    }
+
 
 }
