@@ -9,11 +9,14 @@ import java.time.LocalDate;
 @DiscriminatorValue("abbonamento")
 @Table (name = "abbonamento")
 public class Subscription extends TicketOffice {
+
     @Column(name = "data_scadenza")
     private LocalDate expirationDate;
+
     @Column(name = "tipologia_abbonamento")
     @Enumerated(EnumType.STRING)
     private SubscriptionType subscriptionType;
+
     @ManyToOne
     @JoinColumn(name = "id_tessera")
     private Card card;
@@ -22,8 +25,8 @@ public class Subscription extends TicketOffice {
     }
 
 
-    public Subscription(String location, LocalDate emissionDate, SubscriptionType subscriptionType, Card card) {
-        super(location, emissionDate);
+    public Subscription(String location, LocalDate emissionDate, Retailer retailer, SubscriptionType subscriptionType, Card card) {
+        super(location, emissionDate, retailer);
         this.subscriptionType = subscriptionType;
         if(subscriptionType == SubscriptionType.MONTLY)
 

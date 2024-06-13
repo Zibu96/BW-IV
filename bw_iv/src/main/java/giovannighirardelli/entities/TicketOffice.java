@@ -10,29 +10,36 @@ import java.util.UUID;
 @Table(name = "titolo_viaggio")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "tipo_titolo")
+
 public abstract class TicketOffice {
+
     @Id
     @GeneratedValue
     @Column(name = "id_titolo", nullable = false)
     protected UUID titleId;
+
     @Column(name = "luogo_acquisto")
     protected String location;
+
     @Column(name = "data_emissione", nullable = false)
     protected LocalDate emissionDate;
+
     @Column(name = "prezzo", nullable = false)
     protected double price;
-    @OneToMany (mappedBy = "ticketOffice")
-    private List<Retailer> retailerId;
+
+    @ManyToOne
+    @JoinColumn(name = "rivenditore")
+    protected Retailer retailerId;
 
 
     public TicketOffice() {
     }
 
 
-    public TicketOffice(String location, LocalDate emissionDate) {
+    public TicketOffice(String location, LocalDate emissionDate, Retailer retailer) {
         this.location = location;
         this.emissionDate = emissionDate;
-
+        this.retailerId = retailer;
     }
 
 

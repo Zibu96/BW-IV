@@ -2,6 +2,7 @@ package giovannighirardelli.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -9,24 +10,29 @@ import java.util.UUID;
 @Inheritance (strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "tipo_distributore")
 public abstract class Retailer {
+
     @Id
     @GeneratedValue
     @Column (name = "distributore_id", nullable = false)
     protected UUID id;
-private String location;
-@ManyToOne
-@JoinColumn(name = "titolo_viaggio")
-private TicketOffice ticketOffice;
+
+    @Column(name = "localita")
+    protected String location;
+
+    @OneToMany (mappedBy = "retailerId")
+    protected List<TicketOffice> ticketOffice;
+
+
 public Retailer(){}
     public Retailer(String location) {
         this.location = location;
     }
 
-    public TicketOffice getTicketOffice() {
+    public List<TicketOffice> getTicketOffice() {
         return ticketOffice;
     }
 
-    public void setTicketOffice(TicketOffice ticketOffice) {
+    public void setTicketOffice(List<TicketOffice> ticketOffice) {
         this.ticketOffice = ticketOffice;
     }
 

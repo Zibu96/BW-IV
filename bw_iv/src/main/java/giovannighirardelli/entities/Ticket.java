@@ -23,8 +23,8 @@ public class Ticket extends TicketOffice {
     public Ticket() {
     }
 
-    public Ticket(String location, LocalDate emissionDate, TicketType ticketType) {
-        super(location, emissionDate);
+    public Ticket(String location, LocalDate emissionDate, Retailer retailer, TicketType ticketType) {
+        super(location, emissionDate, retailer);
 
         this.validation = false;
         this.validationDate = null;

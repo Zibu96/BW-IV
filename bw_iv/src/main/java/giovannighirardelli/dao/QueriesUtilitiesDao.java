@@ -8,6 +8,7 @@ import jakarta.persistence.TypedQuery;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 public class QueriesUtilitiesDao {
     private EntityManager em;
@@ -16,56 +17,46 @@ public class QueriesUtilitiesDao {
         this.em = em;
     }
 
-    public List<Ticket> findAllTicketsFromVendingMachine(LocalDate initialDate, LocalDate endDate) {
-        TypedQuery<Ticket> query = em.createQuery("SELECT Ticket FROM TicketOffice a WHERE a.emissionDate > :initialDate AND a.emissionDate < :endDate", Ticket.class);
-        query.setParameter("initialDate", initialDate);
-        query.setParameter("endDate", endDate);
-        return query.getResultList();
+    public void findAllTicketFromRetailer (LocalDate init, LocalDate end, String id ) {
+
+        TypedQuery<Ticket> query = em.createQuery("SELECT a FROM Ticket a WHERE a.emissionDate > :inizioIntervallo AND a.emissionDate < :fineIntervallo AND a.retailerId.id = :id", Ticket.class);
+        query.setParameter("inizioIntervallo", init);
+        query.setParameter("fineIntervallo", end);
+        query.setParameter("id", UUID.fromString(id));
+
+        System.out.println((long) query.getResultList().size());
+        query.getResultList().forEach(System.out::println);
     }
 
-    //    public List<Ticket> findAllTicketsFromAuthorised (LocalDate intervalloTempo){
-//        TypedQuery<Ticket> query = em.createQuery("SELECT a.ticketOffice FROM Authorised a WHERE a.ticketOffice.emissionDate = :intervalloTempo", Ticket.class);
-//        query.setParameter("intervalloTempo", intervalloTempo);
-//        return query.getResultList();
-//    }
-//    public List<Subscription> findAllTSubscriptionFromVendingMachine (LocalDate intervalloTempo){
-//        TypedQuery<Subscription> query = em.createQuery("SELECT a.ticketOffice FROM VendingMachine a WHERE a.ticketOffice.emissionDate = :intervalloTempo", Subscription.class);
-//        query.setParameter("intervalloTempo", intervalloTempo);
-//        return query.getResultList();
-//    }
-//    public List<Subscription> findAllSubscriptionFromAuthorised (LocalDate intervalloTempo){
-//        TypedQuery<Subscription> query = em.createQuery("SELECT a FROM Subcription a WHERE a.ticketOffice.emissionDate = :intervalloTempo", Subscription.class);
-//       query.setParameter("intervalloTempo", intervalloTempo);
-//       return query.getResultList();
-//   }
-    public void findAllTicketOfficeFromVendingMachine(LocalDate intervalloTempo, String location) {
+    public void findAllSubscriptionFromRetailer(LocalDate init, LocalDate end, String id ) {
+        TypedQuery<Subscription> query = em.createQuery("SELECT a FROM Subscription a WHERE a.emissionDate > :inizioIntervallo AND a.emissionDate < :fineIntervallo AND a.retailerId.id = :id", Subscription.class);
+        query.setParameter("inizioIntervallo", init);
+        query.setParameter("fineIntervallo", end);
+        query.setParameter("id", UUID.fromString(id));
 
-        TypedQuery<TicketOffice> query = em.createQuery("SELECT  a.ticketOffice FROM VendingMachine a WHERE a.ticketOffice.emissionDate = :intervalloTempo AND LOWER(a.location) LIKE LOWER(:location)", TicketOffice.class);
-        query.setParameter("intervalloTempo", intervalloTempo);
-        query.setParameter("location", location);
-        List<TicketOffice> resultList = query.getResultList();
-        long ticketCount =
-                resultList.stream().filter(el -> el instanceof Ticket).count();
-        long subscriptionCount =
-                resultList.stream().filter(el -> el instanceof Subscription).count();
-        System.out.println("Numero abbonamenti: " + subscriptionCount);
-        System.out.println("Numero biglietti:" + ticketCount);
-        resultList.forEach(System.out::println);
+        System.out.println((long) query.getResultList().size());
+        query.getResultList().forEach(System.out::println);
+
     }
 
-    public void findAllTicketOfficeFromAuthorised(LocalDate intervalloTempo, String location) {
-        TypedQuery<TicketOffice> query = em.createQuery("SELECT a.ticketOffice FROM Authorised a WHERE a.ticketOffice.emissionDate = :intervalloTempo AND LOWER(a.location) LIKE LOWER(:location)", TicketOffice.class);
-        query.setParameter("intervalloTempo", intervalloTempo);
-        query.setParameter("location", location);
-        List<TicketOffice> resultList = query.getResultList();
-        long ticketCount =
-                resultList.stream().filter(el -> el instanceof Ticket).count();
-        long subscriptionCount =
-                resultList.stream().filter(el -> el instanceof Subscription).count();
-        System.out.println("Numero abbonamenti: " + subscriptionCount);
-        System.out.println("Numero biglietti:" + ticketCount);
+    public void findAllTicketOfficeFromRetailer(LocalDate init, LocalDate end, String id ) {
 
-        resultList.forEach(System.out::println);
+        TypedQuery<TicketOffice> query = em.createQuery("SELECT a FROM TicketOffice a WHERE a.emissionDate > :inizioIntervallo AND a.emissionDate < :fineIntervallo AND a.retailerId.id = :id", TicketOffice.class);
+        query.setParameter("inizioIntervallo", init);
+        query.setParameter("fineIntervallo", end);
+        query.setParameter("id", UUID.fromString(id));
+
+        System.out.println((long) query.getResultList().size());
+        query.getResultList().forEach(System.out::println);
+
+//        List<TicketOffice> resultList = query.getResultList();
+//        long ticketCount =
+//                resultList.stream().filter(el -> el instanceof Ticket).count();
+//        long subscriptionCount =
+//                resultList.stream().filter(el -> el instanceof Subscription).count();
+//        System.out.println("Numero abbonamenti: " + subscriptionCount);
+//        System.out.println("Numero biglietti:" + ticketCount);
+//        resultList.forEach(System.out::println);
     }
 
 
