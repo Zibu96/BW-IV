@@ -27,6 +27,7 @@ public class Application {
         OnDutyDao odd = new OnDutyDao(em);
         MaintanceDao md = new MaintanceDao(em);
         QueriesUtilitiesDao qd = new QueriesUtilitiesDao(em);
+        TransportRouteDao trd = new TransportRouteDao(em);
 
         User user = new User("Christian", "Martucci", LocalDate.of(2001, 9, 11));
         //  ud.userSave(user);
@@ -44,8 +45,8 @@ public class Application {
         PublicTransport pubTr = new PublicTransport(TypePublicTrasport.TRAM, 81, StatePublicTransport.MAINTENANCE);
 //        ptd.publicTransportSave(pubTr);
 
-        Route route = new Route("Termini", "Tiburtina", 2.5);
-        // rd.routeSave(route);
+        Route route = new Route("Tiburtina", "Termini", 2.5);
+//        rd.routeSave(route);
 
         Maintenance main = new Maintenance("Guasto motore", LocalDate.now().minusMonths(8), LocalDate.now().minusMonths(7), ptd.findById("0f0fd584-1a4c-44fa-8c64-2e08c2c83d0d"));
 //        md.maintananceSave(main);
@@ -87,6 +88,11 @@ public class Application {
 //        ptd.getBacklogOfTransportStatus("0f0fd584-1a4c-44fa-8c64-2e08c2c83d0d");
 //        ptd.findAllPublicTransportByStatus(StatePublicTransport.MAINTENANCE);
 //        ptd.getAPublicTransportStatus("0f0fd584-1a4c-44fa-8c64-2e08c2c83d0d");
+
+        TransportRoute transportRoute = new TransportRoute(ptd.findById("0f0fd584-1a4c-44fa-8c64-2e08c2c83d0d"), rd.findById("4e1c8dac-c049-4305-9f87-f9a4bf45a930"), 2.8);
+//        trd.transportRouteSave(transportRoute);
+
+        trd.findRouteByTransport("0f0fd584-1a4c-44fa-8c64-2e08c2c83d0d", "4e1c8dac-c049-4305-9f87-f9a4bf45a930");
     }
 
 }
