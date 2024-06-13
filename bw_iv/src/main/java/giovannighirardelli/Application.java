@@ -4,6 +4,7 @@ import giovannighirardelli.dao.*;
 import giovannighirardelli.entities.*;
 import giovannighirardelli.enums.StatePublicTransport;
 import giovannighirardelli.enums.TaskStatus;
+import giovannighirardelli.enums.TicketType;
 import giovannighirardelli.enums.TypePublicTrasport;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -36,8 +37,8 @@ public class Application {
         // cd.cardSave(card);
 
 
-        // Ticket ticket = new Ticket("Tiburtina", LocalDate.now(), TicketType.ORDINARY);
-        // tod.ticketOfficeSave(ticket);
+        Ticket ticket = new Ticket("Tiburtina", LocalDate.now(), rld.findById("1bf261a4-8349-49a4-8da1-bb06c57dd1cc"), TicketType.LONG_DISTANCE);
+//        tod.ticketOfficeSave(ticket);
 
         // Subscription sub = new Subscription("Termini", LocalDate.now(), SubscriptionType.WEEKLY, cd.findById("924ce772-91d3-4d3b-948c-e640b35454a8"));
         // tod.ticketOfficeSave(sub);
@@ -93,6 +94,10 @@ public class Application {
 //        trd.transportRouteSave(transportRoute);
 
         trd.findRouteByTransport("0f0fd584-1a4c-44fa-8c64-2e08c2c83d0d", "4e1c8dac-c049-4305-9f87-f9a4bf45a930");
+//        tod.validateTicket("2bb427bc-8f9c-493e-8ff9-821a6022c3aa", "0f0fd584-1a4c-44fa-8c64-2e08c2c83d0d");
+//        tod.getTicketByTransport("0f0fd584-1a4c-44fa-8c64-2e08c2c83d0d");
+
+//        tod.getTicketByDate(LocalDate.now().minusDays(2), LocalDate.now().plusDays(2));
     }
 
 }

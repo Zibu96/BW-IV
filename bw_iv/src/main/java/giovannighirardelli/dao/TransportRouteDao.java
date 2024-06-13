@@ -6,6 +6,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.TypedQuery;
 
+import java.text.DecimalFormat;
 import java.util.UUID;
 
 public class TransportRouteDao {
@@ -45,7 +46,13 @@ public class TransportRouteDao {
         if (query.getResultList().isEmpty()) System.out.println("Nessuna rotta è stata percorsa dal mezzo con : " + id);
         else {
             query.getResultList().forEach(System.out::println);
-            System.out.println("il mezzo di trasporto ha percorso la tratta " + query.getResultList().size() + " volte");
+            System.out.println("Il mezzo di trasporto ha percorso la tratta " + query.getResultList().size() + " volte");
+            DecimalFormat df = new DecimalFormat("0.00");
+            double partial = 0;
+            for (int i = 0; i < query.getResultList().size(); i++) {
+                partial += query.getResultList().get(i).getActualTravelTime();
+            }
+            System.out.println("Con un tempo medio di percorrenza: " + df.format(partial / query.getResultList().size()) + " ore");
         }
     }
 }
