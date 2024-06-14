@@ -236,10 +236,180 @@ public class MyScanner {
 
                                 break;
                             }
-                            case 2: {
+                            case 2:
+                            {
+                                int sl = 0;
+                                System.out.println("Inserisci l'id della tua tessera.");
+                                String cardId = scn.nextLine();
+
+                                System.out.println("Da quale punto vendita vuoi acquistare?");
+                                System.out.println("inserisci 1 per selezionare il rivenditore a Tiburtina");
+                                System.out.println("inserisci 2 per selezionare il rivenditore a Termini");
+                                System.out.println("inserisci 3 per selezionare il rivenditore a Colosseo");
+                                System.out.println("inserisci 4 per tornare indietro");
+                                sl = Integer.parseInt(scn.nextLine());
+                                switch (sl)
+                                {
+                                    case 1:
+                                    {
+                                        int sl1 = 0;
+                                        while (sl1 != 3) {
+                                            System.out.println("Vuoi acquistare dal rivenditore autorizzato o dal distributore automatico?");
+                                            System.out.println("Inserisci 1 per selezionare il rivenditore autorizzato.");
+                                            System.out.println("Inserisci 2 per selezionare il distributore automatico");
+                                            System.out.println("inserisci 3 per tornare indietro");
+                                            sl1 = Integer.parseInt(scn.nextLine());
+
+                                            switch (sl1) {
+                                                case 1: {
+
+                                                    int sl2 = 0;
+                                                    while (sl2 != 3) {
+                                                        System.out.println("Che tipo di abbonamento vuoi acquistare?");
+                                                        System.out.println("Inserisci 1 per selezionare l'abbonamento settimanale (15.99 €).");
+                                                        System.out.println("Inserisci 2 per selezionare l'abbonamento mensile (30.59 €).");
+                                                        System.out.println("inserisci 3 per tornare indietro");
+                                                        sl2 = Integer.parseInt(scn.nextLine());
+                                                        subTypeFunctionSel(sl2, "Tiburtina", "2419fa42-0b92-44ac-a949-422752214d48", cardId);
+                                                    }
+                                                    break;
+                                                }
+
+                                                case 2: {
+
+                                                    int sl3 = 0;
+
+                                                    while (sl3 != 3) {
+                                                        System.out.println("Che tipo di abbonamento vuoi acquistare?");
+                                                        System.out.println("Inserisci 1 per selezionare l'abbonamento settimanale (15.99 €).");
+                                                        System.out.println("Inserisci 2 per selezionare l'abbonamento mensile (30.59 €).");
+                                                        System.out.println("inserisci 3 per tornare indietro");
+                                                        sl3 = Integer.parseInt(scn.nextLine());
+                                                        subTypeFunctionSel(sl3, "Tiburtina", "492269d4-1d3e-428e-a497-71c996f21e89", cardId);
+                                                    }
+
+                                                    break;
+                                                }
+
+                                                case 3: break;
+
+
+                                                default:
+                                                    System.out.println("Scelta non valida");
+                                            }
+                                        }
+
+                                        break;
+                                    }
+
+                                    case 2: {
+                                        int sl4 = 0;
+                                        while (sl4 != 3) {
+                                            System.out.println("Vuoi acquistare dal rivenditore autorizzato o dal distributore automatico?");
+                                            System.out.println("Inserisci 1 per selezionare il rivenditore autorizzato.");
+                                            System.out.println("Inserisci 2 per selezionare il distributore automatico");
+                                            System.out.println("inserisci 3 per tornare indietro");
+                                            sl4 = Integer.parseInt(scn.nextLine());
+
+                                            switch (sl4) {
+
+                                                case 1: {
+                                                    int sl5 = 0;
+                                                    while (sl5 != 3) {
+                                                        System.out.println("Che tipo di abbonamento vuoi acquistare?");
+                                                        System.out.println("Inserisci 1 per selezionare l'abbonamento settimanale (15.99 €).");
+                                                        System.out.println("Inserisci 2 per selezionare l'abbonamento mensile (30.59 €).");
+                                                        System.out.println("inserisci 3 per tornare indietro");
+                                                        sl5 = Integer.parseInt(scn.nextLine());
+                                                        subTypeFunctionSel(sl5, "Termini", "676cdca1-4bbc-4a82-9640-01499391caa5", cardId);
+                                                    }
+
+                                                    break;
+                                                }
+
+                                                case 2: {
+
+                                                    int sl6 = 0;
+                                                    while (sl6 != 3) {
+                                                        System.out.println("Che tipo di abbonamento vuoi acquistare?");
+                                                        System.out.println("Inserisci 1 per selezionare l'abbonamento settimanale (15.99 €).");
+                                                        System.out.println("Inserisci 2 per selezionare l'abbonamento mensile (30.59 €).");
+                                                        System.out.println("inserisci 3 per tornare indietro");
+                                                        sl6 = Integer.parseInt(scn.nextLine());
+                                                        subTypeFunctionSel(sl6, "Termini", "c7bb2c28-de41-48e9-bc1c-00d7fe06f01b", cardId);
+                                                    }
+
+                                                    break;
+                                                }
+
+                                                case 3: break;
+
+                                                default:
+                                                    System.out.println("Scelta non valida");
+                                            }
+                                        }
+
+                                        break;
+                                    }
+
+                                    case 3:
+                                    {
+                                        int sl7 = 0;
+                                        while (sl7 != 3) {
+                                            System.out.println("Vuoi acquistare dal rivenditore autorizzato o dal distributore automatico?");
+                                            System.out.println("Inserisci 1 per selezionare il rivenditore autorizzato.");
+                                            System.out.println("Inserisci 2 per selezionare il distributore automatico");
+                                            System.out.println("inserisci 3 per tornare indietro");
+                                            sl7 = Integer.parseInt(scn.nextLine());
+
+                                            switch (sl7) {
+                                                case 1: {
+                                                    int sl8 = 0;
+                                                    while (sl8 != 3) {
+                                                        System.out.println("Che tipo di abbonamento vuoi acquistare?");
+                                                        System.out.println("Inserisci 1 per selezionare l'abbonamento settimanale (15.99 €).");
+                                                        System.out.println("Inserisci 2 per selezionare l'abbonamento mensile (30.59 €).");
+                                                        System.out.println("inserisci 3 per tornare indietro");
+                                                        sl8 = Integer.parseInt(scn.nextLine());
+                                                        subTypeFunctionSel(sl8, "Colosseo", "05a2e1dc-653a-42f5-8e55-0cf50427a38d", cardId);
+                                                    }
+
+                                                    break;
+                                                }
+
+                                                case 2:
+                                                {
+                                                    int sl9 = 0;
+                                                    while (sl9 != 3) {
+                                                        System.out.println("Che tipo di abbonamento vuoi acquistare?");
+                                                        System.out.println("Inserisci 1 per selezionare l'abbonamento settimanale (15.99 €).");
+                                                        System.out.println("Inserisci 2 per selezionare l'abbonamento mensile (30.59 €).");
+                                                        System.out.println("inserisci 3 per tornare indietro");
+                                                        sl9 = Integer.parseInt(scn.nextLine());
+                                                        subTypeFunctionSel(sl9, "Colosseo", "fe235d37-a3fa-4c6b-966e-47ac76b8c2ea", cardId);
+                                                    }
+
+                                                    break;
+                                                }
+
+                                                case 3: break;
+
+                                                default:
+                                                    System.out.println("Scelta non valida");
+                                            }
+                                        }
+                                        break;
+                                    }
+
+                                    case 4: break;
+
+                                    default:
+                                        System.out.println("Scelta non valida");
+                                }
 
                                 break;
                             }
+
                             case 3: {
 
                                 break;
@@ -261,28 +431,24 @@ public class MyScanner {
         }
     }
 
-    private static void subTypeFunctionSel (int el, Scanner scn, String location, String idRetailer, String idCard) {
+    private static void subTypeFunctionSel (int el, String location, String idRetailer, String idCard) {
         EntityManager em = emf.createEntityManager();
         TicketOfficeDao tod = new TicketOfficeDao(em);
         RetailerDao rld = new RetailerDao(em);
         CardDao cd = new CardDao(em);
 
-        System.out.println("Che tipo di abbonamento vuoi acquistare?");
-        System.out.println("Inserisci 1 per selezionare l'abbonamento settimanale (15.99 €).");
-        System.out.println("Inserisci 2 per selezionare l'abbonamento mensile (30.59 €).");
-        System.out.println("inserisci 3 per tornare indietro");
-        el = Integer.parseInt(scn.nextLine());
-
         switch (el) {
             case 1:
             {
                 Subscription subscription = new Subscription(location, LocalDate.now(),  rld.findById(idRetailer), SubscriptionType.WEEKLY, cd.findById(idCard));
+                tod.ticketOfficeSave(subscription);
                 System.out.println("Grazie per l'acquisto!");
                 break;
             }
 
             case 2: {
                 Subscription subscription = new Subscription(location, LocalDate.now(),  rld.findById(idRetailer), SubscriptionType.MONTLY, cd.findById(idCard));
+                tod.ticketOfficeSave(subscription);
                 System.out.println("Grazie per l'acquisto!");
                 break;
             }
