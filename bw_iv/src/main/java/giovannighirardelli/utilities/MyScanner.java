@@ -66,7 +66,8 @@ public class MyScanner {
                                     System.out.println("inserisci 4 per tornare indietro");
                                     el2 = Integer.parseInt(scn.nextLine());
                                     switch (el2){
-                                        case 1:{
+                                        case 1:
+                                        {
                                             int el3 = 0;
                                             while (el3 !=3) {
                                                 System.out.println("Vuoi acquistare dal rivenditore autorizzato o dal distributore automatico?");
