@@ -3,6 +3,7 @@ package giovannighirardelli.utilities;
 import giovannighirardelli.dao.*;
 import giovannighirardelli.entities.Subscription;
 import giovannighirardelli.entities.Ticket;
+import giovannighirardelli.enums.StatePublicTransport;
 import giovannighirardelli.enums.SubscriptionType;
 import giovannighirardelli.enums.TicketType;
 import jakarta.persistence.EntityManager;
@@ -39,9 +40,201 @@ public class MyScanner {
             el = Integer.parseInt(scn.nextLine());
             switch (el) {
                 case 1: {
-                    System.out.println("Quale operazione vuoi effettuare?");
+                    int elem = 0;
+
+                    while (elem != 4)  {
+                        System.out.println("Quale operazione vuoi effettuare?");
+
+                        System.out.println("Inserisci 1 per effettuare controlli sui titoli di viaggio");
+                        System.out.println("Inserisci 2 per effettuare controlli sul parco mezzi");
+                        System.out.println("Inserisci 3 per effettuare controlli sulle tratte");
+                        System.out.println("inserisci 4 per tornare indietro");
+                        elem = Integer.parseInt(scn.nextLine());
+                        switch (elem) {
+                            case 1: {
+                                int elem1 = 0;
+                                while (elem1 != 4) {
+                                    System.out.println("Quale controllo vuoi effettuare?");
+                                    System.out.println("Inserisci 1 per controllare i biglietti");
+                                    System.out.println("Inserisci 2 per controllare gli abbonamenti");
+                                    System.out.println("Inserisci 3 per controllare i titoli di viaggio");
+                                    System.out.println("Inserisci 4 tornare indietro");
+                                    elem1 = Integer.parseInt(scn.nextLine());
+                                    switch (elem1) {
+                                        case 1: {
+                                            int elem2 = 0;
+                                            while (elem2 != 4) {
+                                                System.out.println("Cosa vuoi controllare dei biglietti?");
+                                                System.out.println("Inserisci 1 per controllare i biglietti venduti da un venditore");
+                                                System.out.println("Inserisci 2 per controllare i biglietti validati su uno specifico mezzo");
+                                                System.out.println("Inserisci 3 per controllare i biglietti validati in un arco temporale");
+                                                System.out.println("Inserisci 4 per tornare indietro");
+                                                elem2 = Integer.parseInt(scn.nextLine());
+                                                switch (elem2) {
+                                                    case 1: {
+
+                                                        System.out.println("Inserisci l'ID del rivenditore");
+                                                        String elem3 = scn.nextLine();
+                                                        qd.findAllTicketFromRetailer(LocalDate.now().minusYears(1), LocalDate.now().plusDays(1), elem3);
+                                                        break;
+                                                    }
+                                                    case 2: {
+                                                        System.out.println("Inserisci l'ID del mezzo");
+                                                        String elem4 = scn.nextLine();
+                                                        tod.getTicketByTransport(elem4);
+                                                        break;
+                                                    }
+                                                    case 3: {
+                                                        System.out.println("Inserisci la data da cui iniziare il controllo");
+                                                        LocalDate elem5 = LocalDate.parse(scn.nextLine());
+                                                        System.out.println("Inserisci la data in cui finire il controllo");
+                                                        LocalDate elem6 = LocalDate.parse(scn.nextLine());
+                                                        tod.getTicketByDate(elem5, elem6);
+                                                        break;
+                                                    }
+                                                    case 4:
+                                                        break;
+
+                                                    default:
+                                                        System.out.println("Dato inserito non valido");
+                                                }
+
+                                            }
+                                            break;
 
 
+                                        }
+
+                                        case 2: {
+                                            int elem3 = 0;
+                                            while (elem3 != 3) {
+                                                System.out.println("Cosa vuoi controllare degli abbonamenti?");
+                                                System.out.println("Inserisci 1 per controllare gli abbonamenti venduti da un venditore");
+                                                System.out.println("Inserisci 2 per controllare la validità di un abbonamento");
+                                                System.out.println("Inserisci 3 per tornare indietro");
+                                                elem3 = Integer.parseInt(scn.nextLine());
+                                                switch (elem3) {
+                                                    case 1: {
+                                                        System.out.println("Inserisci l'ID del rivenditore");
+                                                        String elem4 = scn.nextLine();
+                                                        qd.findAllSubscriptionFromRetailer(LocalDate.now().minusYears(1), LocalDate.now().plusDays(1), elem4);
+                                                        break;
+                                                    }
+                                                    case 2: {
+                                                        System.out.println("Inserisci l'ID della tessera dell'utente di cui vuoi controllare la validità dell'abbonamento");
+                                                        String elem5 = scn.nextLine();
+                                                        qd.subscriptionValidationCheck(elem5);
+                                                        break;
+                                                    }
+                                                    case 3:
+                                                        break;
+                                                    default:
+                                                        System.out.println("Dato inserito non valido");
+                                                }
+
+                                            }
+                                            break;
+                                        }
+
+                                        case 3: {
+
+                                            int elem6 = 0;
+                                            while (elem6 != 2) {
+                                                System.out.println("Cosa vuoi controllare della biglietteria?");
+                                                System.out.println("Inserisci 1 per controllare i titoli di viaggio emessi da un venditore");
+                                                System.out.println("Inserisci 2 per tornare indietro");
+                                                elem6 = Integer.parseInt(scn.nextLine());
+                                                switch (elem6) {
+                                                    case 1: {
+                                                        System.out.println("Inserisci l'ID del rivenditore");
+                                                        String elem7 = scn.nextLine();
+                                                        qd.findAllTicketOfficeFromRetailer(LocalDate.now().minusYears(1), LocalDate.now().plusDays(1), elem7);
+                                                        break;
+                                                    }
+                                                    case 2:
+                                                        break;
+                                                    default:
+                                                        System.out.println("Dato inserito non valido");
+                                                }
+                                            }
+                                            break;
+                                        }
+
+                                        case 4: break;
+
+                                        default:
+                                            System.out.println("Dato inserito non valido");
+                                    }
+
+                                }
+                                break;
+                            }
+
+                            case 2: {
+                                int caso2 = 0;
+                                while (caso2 != 4){
+                                    System.out.println("Dimmi quale operazione vuoi effettuare");
+                                    System.out.println("Inserisci 1 se vuoi visualizzare tutti i mezzi in servizio o in manutenzione");
+                                    System.out.println("Inserisci 2 se vuoi visualizzare lo stato attuale di un particolare mezzo");
+                                    System.out.println("Inserisci 3 se vuoi visualizzare lo storico di un particolare mezzo in un periodo di tempo");
+                                    System.out.println("Inserisci 4 per tornare indietro");
+                                    caso2 = Integer.parseInt(scn.nextLine());
+                                    switch (caso2){
+                                        case 1:{
+                                            publicTransportFuctionsAllTrasportStatusSel(caso2);
+                                            break;
+                                        }
+                                        case 2:
+                                        {
+                                            ptd.getAPublicTransportStatus("");
+                                            break;
+                                        }
+                                        case 3:{
+                                            ptd.getBacklogOfTransportStatus("");
+                                            break;
+                                        }
+                                        case 4:{
+                                            break;
+                                        }
+                                        default:
+                                            System.out.println("Selezione non valida");
+                                    }
+
+                                }
+                                break;
+                            }
+                            case 3: {
+                                int elem8 = 0;
+                                while (elem8 != 2) {
+                                    System.out.println("Cosa vuoi controllare dei biglietti?");
+                                    System.out.println("Inserisci 1 per controllare quante volte un mezzo ha percorso una tratta");
+                                    System.out.println("Inserisci 2 per tornare indietro");
+                                    elem8 = Integer.parseInt(scn.nextLine());
+                                    switch (elem8) {
+                                        case 1: {
+
+                                            System.out.println("Inserisci l'ID del mezzo");
+                                            String elem9 = scn.nextLine();
+                                            System.out.println("Inserisci l'ID della tratta");
+                                            String elem10 = scn.nextLine();
+
+                                            trd.findRouteByTransport(elem9, elem10);
+                                            break;
+                                        }
+                                        case 2:
+                                            break;
+                                        default:
+                                            System.out.println("Dato inserito non valido");
+                                    }
+                                }
+                                break;
+                            }
+                            case 4:
+                                break;
+                            default:
+                                System.out.println("Dato inserito non valido");
+                        }
+                    }
 
                     break;
                 }
@@ -423,8 +616,24 @@ public class MyScanner {
                     }
                     break;
                 }
-                case 3:
+                case 3: {
+                    int caso3 = 0;
+                    while (caso3 !=7)
+                    {
+                        System.out.println("Dimmi quale tratta tra quelle qui presenti vuoi effettuare");
+                        System.out.println("Inserisci 1 se vuoi effettuare la tratta da Colosseo a Tiburtina");
+                        System.out.println("Inserisci 2 se vuoi effettuare la tratta da Colosseo a Termini");
+                        System.out.println("Inserisci 3 se vuoi effettuare la tratta da Termini a Colosseo");
+                        System.out.println("Inserisci 4 se vuoi effettuare la tratta da Termini a Tiburtina");
+                        System.out.println("Inserisci 5 se vuoi effettuare la tratta da Tiburtina a Colosseo");
+                        System.out.println("Inserisci 6 se vuoi effettuare la tratta da Tiburtina a Termini");
+                        System.out.println("Inserisci 7 per tornare indietro");
+                        caso3 = Integer.parseInt(scn.nextLine());
+
+                        routeFunctionsSel(caso3,"", scn);
+                    }
                     break;
+                }
                 default:
                     System.out.println("Scelta non valida");
             }
@@ -492,6 +701,70 @@ public class MyScanner {
 
             default:
                 System.out.println("Dato inserito non valido");
+        }
+    }
+
+    public static void publicTransportFuctionsAllTrasportStatusSel (int caso2){
+
+        System.out.println("Vuoi visualizzare tutti i mezzi che sono attualmente in manutenzione o tutti i mezzi in servizio?");
+        System.out.println("Digita 1 per visualizzare tutti i mezzi attualmente in manutenzione");
+        System.out.println("Digita 2 per visualizzare tutti i mezzi attualmente in servizio");
+        EntityManager em = emf.createEntityManager();
+        PublicTransportDao ptd = new PublicTransportDao(em);
+        switch (caso2){
+            case 1:{
+                ptd.findAllPublicTransportByStatus(StatePublicTransport.MAINTENANCE);
+                break;
+            }
+            case 2:{
+                ptd.findAllPublicTransportByStatus(StatePublicTransport.ON_DUTY);
+                break;
+            }
+            default:
+                System.out.println("Selezione non valida");
+                break;
+        }
+
+
+
+    }
+
+    public static void routeFunctionsSel (int caso3, String idTratta, Scanner scn){
+        switch (caso3){
+            case 1, 2, 3, 4, 5, 6 :{
+                EntityManager em = emf.createEntityManager();
+                RouteDao rd = new RouteDao(em);
+                System.out.println("Hai selezionato questa tratta");
+                System.out.println(rd.findById(""));
+                System.out.println("Quale tipo di titolo viaggio possiedi?");
+                System.out.println("Seleziona 1 per il biglietto");
+                System.out.println("Seleziona 2 per il abbonamento");
+                int titoloViaggio = 0;
+                titoloViaggio = Integer.parseInt(scn.nextLine());
+                while (true)
+                {
+                    switch (titoloViaggio){
+                        case 1:{
+
+                            TicketOfficeDao tod = new TicketOfficeDao(em);
+                            tod.validateTicket("","");
+                            break;
+                        }
+                        case 2:{
+                            System.out.println("Hai effettuato la tratta scelta");
+                            break;
+                        }
+                        default:{
+                            System.out.println("Selezione non valida");
+                            break;
+                        }
+                    }
+                }
+
+            }
+
+            case 7: break;
+            default:   System.out.println("Scelta non valida");
         }
     }
 
