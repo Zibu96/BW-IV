@@ -42,7 +42,7 @@ public class MyScanner {
                                     el2 = Integer.parseInt(scn.nextLine());
                                     switch (el2){
                                         case 1:{
-                                            
+
                                             break;
                                         }
                                         case 2:{
