@@ -17,6 +17,7 @@ public class MyScanner {
                     System.out.println("Quale operazione vuoi effettuare?");
 
 
+
                     break;
                 }
                 case 2: {
@@ -28,12 +29,34 @@ public class MyScanner {
                         System.out.println("inserisci 3 se possiedi un titolo di viaggio");
                         System.out.println("inserisci 4 per tornare indietro");
                         el1 = Integer.parseInt(scn.nextLine());
+
                         switch (el1) {
                             case 1: {
-                                System.out.println("Da quale punto vendita vuoi acquistare?");
-                                System.out.println("inserisci 1 per selezionare il rivenditore a Tiburtina");
-                                System.out.println("inserisci 2 per selezionare il rivenditore a Termini");
-                                System.out.println("inserisci 3 per selezionare il rivenditore a Colosseo");
+                                int el2 = 0;
+                                while (el2!=4){
+                                    System.out.println("Da quale punto vendita vuoi acquistare?");
+                                    System.out.println("inserisci 1 per selezionare il rivenditore a Tiburtina");
+                                    System.out.println("inserisci 2 per selezionare il rivenditore a Termini");
+                                    System.out.println("inserisci 3 per selezionare il rivenditore a Colosseo");
+                                    System.out.println("inserisci 4 per tornare indietro");
+                                    el2 = Integer.parseInt(scn.nextLine());
+                                    switch (el2){
+                                        case 1:{
+                                            
+                                            break;
+                                        }
+                                        case 2:{
+                                            break;
+                                        }
+                                        case 3:{
+                                            break;
+                                        }
+                                        case 4: break;
+                                        default:
+                                            System.out.println("Dato inserito non valido");
+                                    }
+                                }
+
                                 break;
                             }
                             case 2: {
