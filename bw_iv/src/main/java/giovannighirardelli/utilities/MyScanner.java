@@ -38,7 +38,13 @@ public class MyScanner {
             System.out.println("Inserisci 1 per accedere alla sezione ADMIN");
             System.out.println("Inserisci 2 per accedere alla sezione UTENTE");
             System.out.println("Inserisci 3 per uscire");
-            el = Integer.parseInt(scn.nextLine());
+
+            try {
+                el = Integer.parseInt(scn.nextLine());
+            } catch (NumberFormatException err) {
+                System.out.println("Devi inserire un numero!");
+            }
+
             switch (el) {
                 case 1: {
                     int elem = 0;
@@ -50,7 +56,13 @@ public class MyScanner {
                         System.out.println("Inserisci 2 per effettuare controlli sul parco mezzi");
                         System.out.println("Inserisci 3 per effettuare controlli sulle tratte");
                         System.out.println("inserisci 4 per tornare indietro");
-                        elem = Integer.parseInt(scn.nextLine());
+
+                       try{
+                           elem = Integer.parseInt(scn.nextLine());
+                       } catch (NumberFormatException err) {
+                            System.out.println("Devi inserire un numero!");
+                        }
+
                         switch (elem) {
                             case 1: {
                                 int elem1 = 0;
@@ -60,7 +72,13 @@ public class MyScanner {
                                     System.out.println("Inserisci 2 per controllare gli abbonamenti");
                                     System.out.println("Inserisci 3 per controllare i titoli di viaggio");
                                     System.out.println("Inserisci 4 tornare indietro");
-                                    elem1 = Integer.parseInt(scn.nextLine());
+
+                                    try{
+                                        elem1 = Integer.parseInt(scn.nextLine());
+                                    } catch (NumberFormatException err) {
+                                        System.out.println("Devi inserire un numero!");
+                                    }
+
                                     switch (elem1) {
                                         case 1: {
                                             int elem2 = 0;
@@ -70,7 +88,13 @@ public class MyScanner {
                                                 System.out.println("Inserisci 2 per controllare i biglietti validati su uno specifico mezzo");
                                                 System.out.println("Inserisci 3 per controllare i biglietti validati in un arco temporale");
                                                 System.out.println("Inserisci 4 per tornare indietro");
-                                                elem2 = Integer.parseInt(scn.nextLine());
+
+                                                try {
+                                                    elem2 = Integer.parseInt(scn.nextLine());
+                                                } catch (NumberFormatException err) {
+                                                    System.out.println("Devi inserire un numero!");
+                                                }
+
                                                 switch (elem2) {
                                                     case 1: {
 
@@ -113,7 +137,13 @@ public class MyScanner {
                                                 System.out.println("Inserisci 1 per controllare gli abbonamenti venduti da un venditore");
                                                 System.out.println("Inserisci 2 per controllare la validità di un abbonamento");
                                                 System.out.println("Inserisci 3 per tornare indietro");
-                                                elem3 = Integer.parseInt(scn.nextLine());
+
+                                                try {
+                                                    elem3 = Integer.parseInt(scn.nextLine());
+                                                } catch (NumberFormatException err) {
+                                                    System.out.println("Devi inserire un numero!");
+                                                }
+
                                                 switch (elem3) {
                                                     case 1: {
                                                         System.out.println("Inserisci l'ID del rivenditore");
@@ -144,7 +174,13 @@ public class MyScanner {
                                                 System.out.println("Cosa vuoi controllare della biglietteria?");
                                                 System.out.println("Inserisci 1 per controllare i titoli di viaggio emessi da un venditore");
                                                 System.out.println("Inserisci 2 per tornare indietro");
-                                                elem6 = Integer.parseInt(scn.nextLine());
+
+                                                try {
+                                                    elem6 = Integer.parseInt(scn.nextLine());
+                                                } catch (NumberFormatException err) {
+                                                    System.out.println("Devi inserire un numero!");
+                                                }
+
                                                 switch (elem6) {
                                                     case 1: {
                                                         System.out.println("Inserisci l'ID del rivenditore");
@@ -180,7 +216,13 @@ public class MyScanner {
                                     System.out.println("Inserisci 2 se vuoi visualizzare lo stato attuale di un particolare mezzo");
                                     System.out.println("Inserisci 3 se vuoi visualizzare lo storico di un particolare mezzo in un periodo di tempo");
                                     System.out.println("Inserisci 4 per tornare indietro");
-                                    caso2 = Integer.parseInt(scn.nextLine());
+
+                                    try {
+                                        caso2 = Integer.parseInt(scn.nextLine());
+                                    } catch (NumberFormatException err) {
+                                        System.out.println("Devi inserire un numero!");
+                                    }
+
                                     switch (caso2) {
                                         case 1: {
                                             int cs = 0;
@@ -189,7 +231,13 @@ public class MyScanner {
                                                 System.out.println("Digita 1 per visualizzare tutti i mezzi attualmente in manutenzione");
                                                 System.out.println("Digita 2 per visualizzare tutti i mezzi attualmente in servizio");
                                                 System.out.println("Inserisci 3 per tornare indietro");
-                                                cs = Integer.parseInt(scn.nextLine());
+
+                                                try {
+                                                    cs = Integer.parseInt(scn.nextLine());
+                                                } catch (NumberFormatException err) {
+                                                    System.out.println("Devi inserire un numero!");
+                                                }
+
                                                 publicTransportFunctionsAllTransportStatusSel(cs);
                                             }
                                             break;
@@ -223,7 +271,12 @@ public class MyScanner {
                                     System.out.println("Cosa vuoi controllare dei biglietti?");
                                     System.out.println("Inserisci 1 per controllare quante volte un mezzo ha percorso una tratta");
                                     System.out.println("Inserisci 2 per tornare indietro");
-                                    elem8 = Integer.parseInt(scn.nextLine());
+                                    try {
+                                        elem8 = Integer.parseInt(scn.nextLine());
+                                    }
+                                    catch (NumberFormatException err) {
+                                        System.out.println("Devi inserire un numero!");
+                                    }
                                     switch (elem8) {
                                         case 1: {
 
@@ -260,7 +313,12 @@ public class MyScanner {
                         System.out.println("Inserisci 2 se vuoi acquistare un abbonamento (TESSERA NECESSARIA)");
                         System.out.println("inserisci 3 se possiedi un titolo di viaggio");
                         System.out.println("inserisci 4 per tornare indietro");
-                        el1 = Integer.parseInt(scn.nextLine());
+
+                        try {
+                            el1 = Integer.parseInt(scn.nextLine());
+                        } catch (NumberFormatException err) {
+                            System.out.println("Devi inserire un numero!");
+                        }
 
                         switch (el1) {
                             case 1: {
@@ -271,7 +329,13 @@ public class MyScanner {
                                     System.out.println("inserisci 2 per selezionare il rivenditore a Termini");
                                     System.out.println("inserisci 3 per selezionare il rivenditore a Colosseo");
                                     System.out.println("inserisci 4 per tornare indietro");
-                                    el2 = Integer.parseInt(scn.nextLine());
+
+                                    try {
+                                        el2 = Integer.parseInt(scn.nextLine());
+                                    } catch (NumberFormatException err) {
+                                        System.out.println("Devi inserire un numero!");
+                                    }
+
                                     switch (el2) {
                                         case 1: {
                                             int el3 = 0;
@@ -280,7 +344,12 @@ public class MyScanner {
                                                 System.out.println("Inserisci 1 per selezionare il rivenditore autorizzato.");
                                                 System.out.println("Inserisci 2 per selezionare il distributore automatico");
                                                 System.out.println("inserisci 3 per tornare indietro");
-                                                el3 = Integer.parseInt(scn.nextLine());
+
+                                                try {
+                                                    el3 = Integer.parseInt(scn.nextLine());
+                                                } catch (NumberFormatException err) {
+                                                    System.out.println("Devi inserire un numero!");
+                                                }
 
                                                 switch (el3) {
                                                     case 1: {
@@ -291,7 +360,12 @@ public class MyScanner {
                                                             System.out.println("Inserisci 2 per selezionare il biglietto a breve distanza 15 km (2,00 €)");
                                                             System.out.println("Inserisci 3 per selezionare il biglietto a lunga distanza 30 km (3,00 €)");
                                                             System.out.println("inserisci 4 per tornare indietro");
-                                                            el4 = Integer.parseInt(scn.nextLine());
+                                                            try {
+                                                                el4 = Integer.parseInt(scn.nextLine());
+                                                            }
+                                                            catch (NumberFormatException err) {
+                                                                System.out.println("Devi inserire un numero!");
+                                                            }
 
                                                             ticketTypeFunctionSel(el4, "Tiburtina", "2419fa42-0b92-44ac-a949-422752214d48");
 
@@ -308,7 +382,12 @@ public class MyScanner {
                                                             System.out.println("Inserisci 2 per selezionare il biglietto a breve distanza 15 km (2,00 €)");
                                                             System.out.println("Inserisci 3 per selezionare il biglietto a lunga distanza 30 km (3,00 €)");
                                                             System.out.println("inserisci 4 per tornare indietro");
-                                                            el5 = Integer.parseInt(scn.nextLine());
+                                                            try {
+                                                                el5 = Integer.parseInt(scn.nextLine());
+                                                            }
+                                                             catch (NumberFormatException err) {
+                                                                System.out.println("Devi inserire un numero!");
+                                                            }
 
                                                             ticketTypeFunctionSel(el5, "Tiburtina", "492269d4-1d3e-428e-a497-71c996f21e89");
 
@@ -332,7 +411,14 @@ public class MyScanner {
                                                 System.out.println("Inserisci 1 per selezionare il rivenditore autorizzato.");
                                                 System.out.println("Inserisci 2 per selezionare il distributore automatico");
                                                 System.out.println("inserisci 3 per tornare indietro");
-                                                el6 = Integer.parseInt(scn.nextLine());
+
+                                                try{
+                                                    el6 = Integer.parseInt(scn.nextLine());
+                                                }
+                                                 catch (NumberFormatException err) {
+                                                    System.out.println("Devi inserire un numero!");
+                                                }
+
 
                                                 switch (el6) {
                                                     case 1: {
@@ -343,7 +429,13 @@ public class MyScanner {
                                                             System.out.println("Inserisci 2 per selezionare il biglietto a breve distanza 15 km (2,00 €)");
                                                             System.out.println("Inserisci 3 per selezionare il biglietto a lunga distanza 30 km (3,00 €)");
                                                             System.out.println("inserisci 4 per tornare indietro");
-                                                            el7 = Integer.parseInt(scn.nextLine());
+
+                                                            try {
+                                                                el7 = Integer.parseInt(scn.nextLine());
+                                                            }
+                                                            catch (NumberFormatException err) {
+                                                                System.out.println("Devi inserire un numero!");
+                                                            }
 
                                                             ticketTypeFunctionSel(el7, "Termini", "676cdca1-4bbc-4a82-9640-01499391caa5");
 
@@ -360,7 +452,13 @@ public class MyScanner {
                                                             System.out.println("Inserisci 2 per selezionare il biglietto a breve distanza 15 km (2,00 €)");
                                                             System.out.println("Inserisci 3 per selezionare il biglietto a lunga distanza 30 km (3,00 €)");
                                                             System.out.println("inserisci 4 per tornare indietro");
-                                                            el8 = Integer.parseInt(scn.nextLine());
+
+                                                            try{
+                                                                el8 = Integer.parseInt(scn.nextLine());
+                                                            }
+                                                            catch (NumberFormatException err) {
+                                                                System.out.println("Devi inserire un numero!");
+                                                            }
 
                                                             ticketTypeFunctionSel(el8, "Termini", "c7bb2c28-de41-48e9-bc1c-00d7fe06f01b");
 
@@ -385,7 +483,13 @@ public class MyScanner {
                                                 System.out.println("Inserisci 1 per selezionare il rivenditore autorizzato.");
                                                 System.out.println("Inserisci 2 per selezionare il distributore automatico");
                                                 System.out.println("inserisci 3 per tornare indietro");
-                                                el9 = Integer.parseInt(scn.nextLine());
+
+                                                try{
+                                                    el9 = Integer.parseInt(scn.nextLine());
+                                                }
+                                                catch (NumberFormatException err) {
+                                                    System.out.println("Devi inserire un numero!");
+                                                }
 
                                                 switch (el9) {
                                                     case 1: {
@@ -397,7 +501,13 @@ public class MyScanner {
                                                             System.out.println("Inserisci 2 per selezionare il biglietto a breve distanza 15 km (2,00 €)");
                                                             System.out.println("Inserisci 3 per selezionare il biglietto a lunga distanza 30 km (3,00 €)");
                                                             System.out.println("inserisci 4 per tornare indietro");
-                                                            el10 = Integer.parseInt(scn.nextLine());
+
+                                                            try {
+                                                                el10 = Integer.parseInt(scn.nextLine());
+                                                            }
+                                                            catch (NumberFormatException err) {
+                                                                System.out.println("Devi inserire un numero!");
+                                                            }
 
                                                             ticketTypeFunctionSel(el10, "Colosseo", "05a2e1dc-653a-42f5-8e55-0cf50427a38d");
 
@@ -415,7 +525,12 @@ public class MyScanner {
                                                             System.out.println("Inserisci 2 per selezionare il biglietto a breve distanza 15 km (2,00 €)");
                                                             System.out.println("Inserisci 3 per selezionare il biglietto a lunga distanza 30 km (3,00 €)");
                                                             System.out.println("inserisci 4 per tornare indietro");
-                                                            el11 = Integer.parseInt(scn.nextLine());
+                                                            try {
+                                                                el11 = Integer.parseInt(scn.nextLine());
+                                                            }
+                                                            catch (NumberFormatException err) {
+                                                                System.out.println("Devi inserire un numero!");
+                                                            }
 
                                                             ticketTypeFunctionSel(el11, "Colosseo", "fe235d37-a3fa-4c6b-966e-47ac76b8c2ea");
 
@@ -451,7 +566,12 @@ public class MyScanner {
                                 System.out.println("inserisci 2 per selezionare il rivenditore a Termini");
                                 System.out.println("inserisci 3 per selezionare il rivenditore a Colosseo");
                                 System.out.println("inserisci 4 per tornare indietro");
-                                sl = Integer.parseInt(scn.nextLine());
+                                try {
+                                    sl = Integer.parseInt(scn.nextLine());
+                                }  catch (NumberFormatException err) {
+                                    System.out.println("Devi inserire un numero!");
+                                }
+
                                 switch (sl) {
                                     case 1: {
                                         int sl1 = 0;
@@ -460,8 +580,11 @@ public class MyScanner {
                                             System.out.println("Inserisci 1 per selezionare il rivenditore autorizzato.");
                                             System.out.println("Inserisci 2 per selezionare il distributore automatico");
                                             System.out.println("inserisci 3 per tornare indietro");
+                                        try {
                                             sl1 = Integer.parseInt(scn.nextLine());
-
+                                        }  catch (NumberFormatException err) {
+                                            System.out.println("Devi inserire un numero!");
+                                        }
                                             switch (sl1) {
                                                 case 1: {
 
@@ -471,7 +594,12 @@ public class MyScanner {
                                                         System.out.println("Inserisci 1 per selezionare l'abbonamento settimanale (15.99 €).");
                                                         System.out.println("Inserisci 2 per selezionare l'abbonamento mensile (30.59 €).");
                                                         System.out.println("inserisci 3 per tornare indietro");
+                                                        try{
+
                                                         sl2 = Integer.parseInt(scn.nextLine());
+                                                    }  catch (NumberFormatException err) {
+                                                        System.out.println("Devi inserire un numero!");
+                                                    }
                                                         subTypeFunctionSel(sl2, "Tiburtina", "2419fa42-0b92-44ac-a949-422752214d48", cardId);
                                                     }
                                                     break;
@@ -486,7 +614,13 @@ public class MyScanner {
                                                         System.out.println("Inserisci 1 per selezionare l'abbonamento settimanale (15.99 €).");
                                                         System.out.println("Inserisci 2 per selezionare l'abbonamento mensile (30.59 €).");
                                                         System.out.println("inserisci 3 per tornare indietro");
-                                                        sl3 = Integer.parseInt(scn.nextLine());
+                                                        try {
+                                                            sl3 = Integer.parseInt(scn.nextLine());
+                                                        }
+                                                        catch (NumberFormatException err) {
+                                                        System.out.println("Devi inserire un numero!");
+                                                    }
+
                                                         subTypeFunctionSel(sl3, "Tiburtina", "492269d4-1d3e-428e-a497-71c996f21e89", cardId);
                                                     }
 
@@ -512,7 +646,12 @@ public class MyScanner {
                                             System.out.println("Inserisci 1 per selezionare il rivenditore autorizzato.");
                                             System.out.println("Inserisci 2 per selezionare il distributore automatico");
                                             System.out.println("inserisci 3 per tornare indietro");
-                                            sl4 = Integer.parseInt(scn.nextLine());
+
+                                            try {
+                                                sl4 = Integer.parseInt(scn.nextLine());
+                                            } catch (NumberFormatException err) {
+                                                System.out.println("Devi inserire un numero!");
+                                            }
 
                                             switch (sl4) {
 
@@ -523,7 +662,13 @@ public class MyScanner {
                                                         System.out.println("Inserisci 1 per selezionare l'abbonamento settimanale (15.99 €).");
                                                         System.out.println("Inserisci 2 per selezionare l'abbonamento mensile (30.59 €).");
                                                         System.out.println("inserisci 3 per tornare indietro");
-                                                        sl5 = Integer.parseInt(scn.nextLine());
+
+                                                        try {
+                                                            sl5 = Integer.parseInt(scn.nextLine());
+                                                        } catch (NumberFormatException err) {
+                                                            System.out.println("Devi inserire un numero!");
+                                                        }
+
                                                         subTypeFunctionSel(sl5, "Termini", "676cdca1-4bbc-4a82-9640-01499391caa5", cardId);
                                                     }
 
@@ -538,7 +683,13 @@ public class MyScanner {
                                                         System.out.println("Inserisci 1 per selezionare l'abbonamento settimanale (15.99 €).");
                                                         System.out.println("Inserisci 2 per selezionare l'abbonamento mensile (30.59 €).");
                                                         System.out.println("inserisci 3 per tornare indietro");
-                                                        sl6 = Integer.parseInt(scn.nextLine());
+
+                                                        try{
+                                                            sl6 = Integer.parseInt(scn.nextLine());
+                                                        }
+                                                        catch (NumberFormatException err) {
+                                                            System.out.println("Devi inserire un numero!");
+                                                        }
                                                         subTypeFunctionSel(sl6, "Termini", "c7bb2c28-de41-48e9-bc1c-00d7fe06f01b", cardId);
                                                     }
 
@@ -563,7 +714,12 @@ public class MyScanner {
                                             System.out.println("Inserisci 1 per selezionare il rivenditore autorizzato.");
                                             System.out.println("Inserisci 2 per selezionare il distributore automatico");
                                             System.out.println("inserisci 3 per tornare indietro");
-                                            sl7 = Integer.parseInt(scn.nextLine());
+
+                                            try {
+                                                sl7 = Integer.parseInt(scn.nextLine());
+                                            }  catch (NumberFormatException err) {
+                                                System.out.println("Devi inserire un numero!");
+                                            }
 
                                             switch (sl7) {
                                                 case 1: {
@@ -573,7 +729,12 @@ public class MyScanner {
                                                         System.out.println("Inserisci 1 per selezionare l'abbonamento settimanale (15.99 €).");
                                                         System.out.println("Inserisci 2 per selezionare l'abbonamento mensile (30.59 €).");
                                                         System.out.println("inserisci 3 per tornare indietro");
-                                                        sl8 = Integer.parseInt(scn.nextLine());
+
+                                                        try {
+                                                            sl8 = Integer.parseInt(scn.nextLine());
+                                                        } catch (NumberFormatException err) {
+                                                            System.out.println("Devi inserire un numero!");
+                                                        }
                                                         subTypeFunctionSel(sl8, "Colosseo", "05a2e1dc-653a-42f5-8e55-0cf50427a38d", cardId);
                                                     }
 
@@ -587,7 +748,13 @@ public class MyScanner {
                                                         System.out.println("Inserisci 1 per selezionare l'abbonamento settimanale (15.99 €).");
                                                         System.out.println("Inserisci 2 per selezionare l'abbonamento mensile (30.59 €).");
                                                         System.out.println("inserisci 3 per tornare indietro");
-                                                        sl9 = Integer.parseInt(scn.nextLine());
+
+                                                        try {
+                                                            sl9 = Integer.parseInt(scn.nextLine());
+                                                        } catch (NumberFormatException err) {
+                                                            System.out.println("Devi inserire un numero!");
+                                                        }
+
                                                         subTypeFunctionSel(sl9, "Colosseo", "fe235d37-a3fa-4c6b-966e-47ac76b8c2ea", cardId);
                                                     }
 
@@ -626,7 +793,13 @@ public class MyScanner {
                                     System.out.println("Inserisci 5 se vuoi effettuare la tratta da Tiburtina a Colosseo");
                                     System.out.println("Inserisci 6 se vuoi effettuare la tratta da Tiburtina a Termini");
                                     System.out.println("Inserisci 7 per tornare indietro");
-                                    caso3 = Integer.parseInt(scn.nextLine());
+
+                                    try {
+                                        caso3 = Integer.parseInt(scn.nextLine());
+                                    }
+                                    catch (NumberFormatException err) {
+                                        System.out.println("Devi inserire un numero!");
+                                    }
                                     routeFunctionsSel(caso3, scn);
                                 }
                                 break;
@@ -642,21 +815,7 @@ public class MyScanner {
                 }
 
                 case 3: {
-                    int caso3 = 0;
-                    while (caso3 != 7) {
-
-                        System.out.println("Dimmi quale tratta tra quelle qui presenti vuoi effettuare");
-                        System.out.println("Inserisci 1 se vuoi effettuare la tratta da Colosseo a Tiburtina");
-                        System.out.println("Inserisci 2 se vuoi effettuare la tratta da Colosseo a Termini");
-                        System.out.println("Inserisci 3 se vuoi effettuare la tratta da Termini a Colosseo");
-                        System.out.println("Inserisci 4 se vuoi effettuare la tratta da Termini a Tiburtina");
-                        System.out.println("Inserisci 5 se vuoi effettuare la tratta da Tiburtina a Colosseo");
-                        System.out.println("Inserisci 6 se vuoi effettuare la tratta da Tiburtina a Termini");
-                        System.out.println("Inserisci 7 per tornare indietro");
-                        caso3 = Integer.parseInt(scn.nextLine());
-                        routeFunctionsSel(caso3, scn);
-
-                    }
+                    System.out.println("Grazie Cristian!");
                     break;
                 }
 
@@ -771,7 +930,12 @@ public class MyScanner {
                     System.out.println("Seleziona 2 per il abbonamento");
                     System.out.println("Seleziona 3 per tornare indietro");
 
-                    titoloViaggio = Integer.parseInt(scn.nextLine());
+                    try{
+                        titoloViaggio = Integer.parseInt(scn.nextLine());
+                    } catch (NumberFormatException err) {
+                        System.out.println("Devi inserire un numero!");
+                    }
+
                     switch (titoloViaggio) {
                         case 1: {
                             TicketOfficeDao tod = new TicketOfficeDao(em);
@@ -805,14 +969,19 @@ public class MyScanner {
                     System.out.println("Seleziona 1 per il biglietto");
                     System.out.println("Seleziona 2 per il abbonamento");
                     System.out.println("Seleziona 3 per tornare indietro");
-                    titoloViaggio = Integer.parseInt(scn.nextLine());
+
+                    try {
+                        titoloViaggio = Integer.parseInt(scn.nextLine());
+                    } catch (NumberFormatException err) {
+                        System.out.println("Devi inserire un numero!");
+                    }
+
                     switch (titoloViaggio) {
                         case 1: {
                             TicketOfficeDao tod = new TicketOfficeDao(em);
                             System.out.println("Indicami il codice id del tuo biglietto");
                             String idBiglietto = scn.nextLine();
                             tod.validateTicket(idBiglietto, transportRoute.getPublicTransport().getId().toString());
-
 
                             break;
                         }
@@ -840,7 +1009,14 @@ public class MyScanner {
                     System.out.println("Seleziona 2 per il abbonamento");
                     System.out.println("Seleziona 3 per tornare indietro");
                     TransportRoute transportRoute = trd.findById("54ecbc67-c085-4c0e-ae29-977a3a0efe4a");
-                    titoloViaggio = Integer.parseInt(scn.nextLine());
+
+                    try {
+                        titoloViaggio = Integer.parseInt(scn.nextLine());
+                    }
+                    catch (NumberFormatException err) {
+                        System.out.println("Devi inserire un numero!");
+                    }
+
                     switch (titoloViaggio) {
                         case 1: {
                             TicketOfficeDao tod = new TicketOfficeDao(em);
@@ -874,14 +1050,19 @@ public class MyScanner {
                     System.out.println("Seleziona 1 per il biglietto");
                     System.out.println("Seleziona 2 per il abbonamento");
                     System.out.println("Seleziona 3 per tornare indietro");
-                    titoloViaggio = Integer.parseInt(scn.nextLine());
+
+                    try {
+                        titoloViaggio = Integer.parseInt(scn.nextLine());
+                    } catch (NumberFormatException err) {
+                        System.out.println("Devi inserire un numero!");
+                    }
+
                     switch (titoloViaggio) {
                         case 1: {
                             TicketOfficeDao tod = new TicketOfficeDao(em);
                             System.out.println("Indicami il codice id del tuo biglietto");
                             String idBiglietto = scn.nextLine();
                             tod.validateTicket(idBiglietto, transportRoute.getPublicTransport().getId().toString());
-
 
                             break;
                         }
@@ -909,7 +1090,14 @@ public class MyScanner {
                     System.out.println("Seleziona 1 per il biglietto");
                     System.out.println("Seleziona 2 per il abbonamento");
                     System.out.println("Seleziona 3 per tornare indietro");
-                    titoloViaggio = Integer.parseInt(scn.nextLine());
+
+                    try {
+                        titoloViaggio = Integer.parseInt(scn.nextLine());
+                    }
+                    catch (NumberFormatException err) {
+                        System.out.println("Devi inserire un numero!");
+                    }
+
                     switch (titoloViaggio) {
                         case 1: {
                             TicketOfficeDao tod = new TicketOfficeDao(em);
@@ -917,7 +1105,6 @@ public class MyScanner {
                             String idBiglietto = scn.nextLine();
 
                             tod.validateTicket(idBiglietto, transportRoute.getPublicTransport().getId().toString());
-
 
                             break;
                         }
@@ -945,15 +1132,21 @@ public class MyScanner {
                     System.out.println("Seleziona 1 per il biglietto");
                     System.out.println("Seleziona 2 per il abbonamento");
                     System.out.println("Seleziona 3 per tornare indietro");
-                    titoloViaggio = Integer.parseInt(scn.nextLine());
+
+                    try {
+                        titoloViaggio = Integer.parseInt(scn.nextLine());
+                    }
+                    catch (NumberFormatException err) {
+                        System.out.println("Devi inserire un numero!");
+                    }
+
                     switch (titoloViaggio) {
                         case 1: {
                             TicketOfficeDao tod = new TicketOfficeDao(em);
                             System.out.println("Indicami il codice id del tuo biglietto");
                             String idBiglietto = scn.nextLine();
                             tod.validateTicket(idBiglietto, transportRoute.getPublicTransport().getId().toString());
-
-
+                            
                             break;
                         }
                         case 2: {
