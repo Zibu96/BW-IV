@@ -615,7 +615,20 @@ public class MyScanner {
                             }
 
                             case 3: {
+                                int caso3 = 0;
+                                while (caso3 != 7) {
 
+                                    System.out.println("Dimmi quale tratta tra quelle qui presenti vuoi effettuare");
+                                    System.out.println("Inserisci 1 se vuoi effettuare la tratta da Colosseo a Tiburtina");
+                                    System.out.println("Inserisci 2 se vuoi effettuare la tratta da Colosseo a Termini");
+                                    System.out.println("Inserisci 3 se vuoi effettuare la tratta da Termini a Colosseo");
+                                    System.out.println("Inserisci 4 se vuoi effettuare la tratta da Termini a Tiburtina");
+                                    System.out.println("Inserisci 5 se vuoi effettuare la tratta da Tiburtina a Colosseo");
+                                    System.out.println("Inserisci 6 se vuoi effettuare la tratta da Tiburtina a Termini");
+                                    System.out.println("Inserisci 7 per tornare indietro");
+                                    caso3 = Integer.parseInt(scn.nextLine());
+                                    routeFunctionsSel(caso3, scn);
+                                }
                                 break;
                             }
                             case 4:
@@ -627,6 +640,7 @@ public class MyScanner {
                     }
                     break;
                 }
+
                 case 3: {
                     int caso3 = 0;
                     while (caso3 != 7) {
@@ -645,10 +659,13 @@ public class MyScanner {
                     }
                     break;
                 }
+
                 default:
                     System.out.println("Scelta non valida");
             }
         }
+
+        scn.close();
     }
 
     private static void subTypeFunctionSel(int el, String location, String idRetailer, String idCard) {
@@ -820,7 +837,6 @@ public class MyScanner {
                         System.out.println("Indicami il codice id del tuo biglietto");
                         String idBiglietto = scn.nextLine();
                         tod.validateTicket(idBiglietto, transportRoute.getPublicTransport().getId().toString());
-
 
                         break;
                     }
