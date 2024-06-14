@@ -804,6 +804,7 @@ public class MyScanner {
                     System.out.println("Quale tipo di titolo viaggio possiedi?");
                     System.out.println("Seleziona 1 per il biglietto");
                     System.out.println("Seleziona 2 per il abbonamento");
+                    System.out.println("Seleziona 3 per tornare indietro");
                     titoloViaggio = Integer.parseInt(scn.nextLine());
                     switch (titoloViaggio) {
                         case 1: {
@@ -837,6 +838,7 @@ public class MyScanner {
                     System.out.println("Quale tipo di titolo viaggio possiedi?");
                     System.out.println("Seleziona 1 per il biglietto");
                     System.out.println("Seleziona 2 per il abbonamento");
+                    System.out.println("Seleziona 3 per tornare indietro");
                     TransportRoute transportRoute = trd.findById("54ecbc67-c085-4c0e-ae29-977a3a0efe4a");
                     titoloViaggio = Integer.parseInt(scn.nextLine());
                     switch (titoloViaggio) {
@@ -871,6 +873,7 @@ public class MyScanner {
 
                     System.out.println("Seleziona 1 per il biglietto");
                     System.out.println("Seleziona 2 per il abbonamento");
+                    System.out.println("Seleziona 3 per tornare indietro");
                     titoloViaggio = Integer.parseInt(scn.nextLine());
                     switch (titoloViaggio) {
                         case 1: {
@@ -905,6 +908,7 @@ public class MyScanner {
                     System.out.println("Quale tipo di titolo viaggio possiedi?");
                     System.out.println("Seleziona 1 per il biglietto");
                     System.out.println("Seleziona 2 per il abbonamento");
+                    System.out.println("Seleziona 3 per tornare indietro");
                     titoloViaggio = Integer.parseInt(scn.nextLine());
                     switch (titoloViaggio) {
                         case 1: {
@@ -940,6 +944,7 @@ public class MyScanner {
                     System.out.println("Quale tipo di titolo viaggio possiedi?");
                     System.out.println("Seleziona 1 per il biglietto");
                     System.out.println("Seleziona 2 per il abbonamento");
+                    System.out.println("Seleziona 3 per tornare indietro");
                     titoloViaggio = Integer.parseInt(scn.nextLine());
                     switch (titoloViaggio) {
                         case 1: {
