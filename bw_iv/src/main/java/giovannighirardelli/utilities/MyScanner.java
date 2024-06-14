@@ -3,6 +3,7 @@ package giovannighirardelli.utilities;
 import giovannighirardelli.dao.*;
 import giovannighirardelli.entities.Subscription;
 import giovannighirardelli.entities.Ticket;
+import giovannighirardelli.entities.TransportRoute;
 import giovannighirardelli.enums.StatePublicTransport;
 import giovannighirardelli.enums.SubscriptionType;
 import giovannighirardelli.enums.TicketType;
@@ -215,6 +216,7 @@ public class MyScanner {
                                 }
                                 break;
                             }
+
                             case 3: {
                                 int elem8 = 0;
                                 while (elem8 != 2) {
@@ -627,7 +629,8 @@ public class MyScanner {
                 }
                 case 3: {
                     int caso3 = 0;
-                    while (caso3 != 7) {
+                    while (caso3 !=7){
+
                         System.out.println("Dimmi quale tratta tra quelle qui presenti vuoi effettuare");
                         System.out.println("Inserisci 1 se vuoi effettuare la tratta da Colosseo a Tiburtina");
                         System.out.println("Inserisci 2 se vuoi effettuare la tratta da Colosseo a Termini");
@@ -637,8 +640,8 @@ public class MyScanner {
                         System.out.println("Inserisci 6 se vuoi effettuare la tratta da Tiburtina a Termini");
                         System.out.println("Inserisci 7 per tornare indietro");
                         caso3 = Integer.parseInt(scn.nextLine());
+                        routeFunctionsSel(caso3, scn);
 
-                        routeFunctionsSel(caso3, "", scn);
                     }
                     break;
                 }
@@ -736,43 +739,192 @@ public class MyScanner {
 
     }
 
-    public static void routeFunctionsSel(int caso3, String idTratta, Scanner scn) {
-        switch (caso3) {
-            case 1, 2, 3, 4, 5, 6: {
-                EntityManager em = emf.createEntityManager();
-                RouteDao rd = new RouteDao(em);
-                System.out.println("Hai selezionato questa tratta");
-                System.out.println(rd.findById(""));
+    public static void routeFunctionsSel (int caso3, Scanner scn){
+        EntityManager em = emf.createEntityManager();
+        TransportRouteDao trd = new TransportRouteDao(em);
+        switch (caso3){
+            case 1 :{
+                System.out.println("Hai selezionato la tratta Colosseo-Tiburtina");
+                TransportRoute transportRoute =   trd.findById("");
                 System.out.println("Quale tipo di titolo viaggio possiedi?");
                 System.out.println("Seleziona 1 per il biglietto");
                 System.out.println("Seleziona 2 per il abbonamento");
-                int titoloViaggio = 0;
-                titoloViaggio = Integer.parseInt(scn.nextLine());
-                while (true) {
-                    switch (titoloViaggio) {
-                        case 1: {
 
-                            TicketOfficeDao tod = new TicketOfficeDao(em);
-                            tod.validateTicket("", "");
-                            break;
-                        }
-                        case 2: {
-                            System.out.println("Hai effettuato la tratta scelta");
-                            break;
-                        }
-                        default: {
-                            System.out.println("Selezione non valida");
-                            break;
-                        }
+                int  titoloViaggio = Integer.parseInt(scn.nextLine());
+                switch (titoloViaggio){
+                    case 1:{
+                        TicketOfficeDao tod = new TicketOfficeDao(em);
+                        System.out.println("Indicami il codice id del tuo bliglietto");
+                        String idBiglietto = scn.nextLine();
+                        tod.validateTicket(idBiglietto,transportRoute.getPublicTransport().getId().toString());
+
+                        break;
                     }
+                    case 2:{
+                        System.out.println("Hai effettuato la tratta scelta");
+                        break;
+                    }
+                    default:{
+                        System.out.println("Selezione non valida");
+                        break;
+                    }
+
                 }
 
+
+
+
+            }
+            case 2:{
+
+                System.out.println("Hai selezionato la tratta Colosseo-Termini");
+                TransportRoute transportRoute =   trd.findById("");
+                System.out.println("Quale tipo di titolo viaggio possiedi?");
+                System.out.println("Seleziona 1 per il biglietto");
+                System.out.println("Seleziona 2 per il abbonamento");
+                int  titoloViaggio = Integer.parseInt(scn.nextLine());
+                switch (titoloViaggio){
+                    case 1:{
+                        TicketOfficeDao tod = new TicketOfficeDao(em);
+                        System.out.println("Indicami il codice id del tuo bliglietto");
+                        String idBiglietto = scn.nextLine();
+                        tod.validateTicket(idBiglietto,transportRoute.getPublicTransport().getId().toString());
+
+
+                        break;
+                    }
+                    case 2:{
+                        System.out.println("Hai effettuato la tratta scelta");
+                        break;
+                    }
+                    default:{
+                        System.out.println("Selezione non valida");
+                        break;
+                    }
+
+                }
+            }
+            case 3:{
+
+                System.out.println("Hai selezionato la tratta Termini-Colosseo");
+                System.out.println("Quale tipo di titolo viaggio possiedi?");
+                System.out.println("Seleziona 1 per il biglietto");
+                System.out.println("Seleziona 2 per il abbonamento");
+                TransportRoute transportRoute =   trd.findById("");
+                int  titoloViaggio = Integer.parseInt(scn.nextLine());
+                switch (titoloViaggio){
+                    case 1:{
+                        TicketOfficeDao tod = new TicketOfficeDao(em);
+                        System.out.println("Indicami il codice id del tuo bliglietto");
+                        String idBiglietto = scn.nextLine();
+                        tod.validateTicket(idBiglietto,transportRoute.getPublicTransport().getId().toString());
+
+
+                        break;
+                    }
+                    case 2:{
+                        System.out.println("Hai effettuato la tratta scelta");
+                        break;
+                    }
+                    default:{
+                        System.out.println("Selezione non valida");
+                        break;
+                    }
+
+                }
+            }
+            case 4:{
+
+                System.out.println("Hai selezionato la tratta Termini-Tiburtina");
+                TransportRoute transportRoute =   trd.findById("");
+                System.out.println("Quale tipo di titolo viaggio possiedi?");
+
+                System.out.println("Seleziona 1 per il biglietto");
+                System.out.println("Seleziona 2 per il abbonamento");
+                int  titoloViaggio = Integer.parseInt(scn.nextLine());
+                switch (titoloViaggio){
+                    case 1:{
+                        TicketOfficeDao tod = new TicketOfficeDao(em);
+                        System.out.println("Indicami il codice id del tuo bliglietto");
+                        String idBiglietto = scn.nextLine();
+                        tod.validateTicket(idBiglietto,transportRoute.getPublicTransport().getId().toString());
+
+
+                        break;
+                    }
+                    case 2:{
+                        System.out.println("Hai effettuato la tratta scelta");
+                        break;
+                    }
+                    default:{
+                        System.out.println("Selezione non valida");
+                        break;
+                    }
+
+                }
+            }
+            case 5:{
+
+                System.out.println("Hai selezionato la tratta Tiburtina-Colosseo");
+                TransportRoute transportRoute =   trd.findById("");
+                System.out.println("Quale tipo di titolo viaggio possiedi?");
+                System.out.println("Seleziona 1 per il biglietto");
+                System.out.println("Seleziona 2 per il abbonamento");
+                int  titoloViaggio = Integer.parseInt(scn.nextLine());
+                switch (titoloViaggio){
+                    case 1:{
+                        TicketOfficeDao tod = new TicketOfficeDao(em);
+                        System.out.println("Indicami il codice id del tuo bliglietto");
+                        String idBiglietto = scn.nextLine();
+
+                        tod.validateTicket(idBiglietto,transportRoute.getPublicTransport().getId().toString());
+
+
+                        break;
+                    }
+                    case 2:{
+                        System.out.println("Hai effettuato la tratta scelta");
+                        break;
+                    }
+                    default:{
+                        System.out.println("Selezione non valida");
+                        break;
+                    }
+
+                }
+            }
+            case 6:{
+
+                System.out.println("Hai selezionato la tratta Tiburtina-Termini");
+                TransportRoute transportRoute =   trd.findById("");
+                System.out.println("Quale tipo di titolo viaggio possiedi?");
+                System.out.println("Seleziona 1 per il biglietto");
+                System.out.println("Seleziona 2 per il abbonamento");
+                int  titoloViaggio = Integer.parseInt(scn.nextLine());
+                switch (titoloViaggio){
+                    case 1:{
+                        TicketOfficeDao tod = new TicketOfficeDao(em);
+                        System.out.println("Indicami il codice id del tuo bliglietto");
+                        String idBiglietto = scn.nextLine();
+                        tod.validateTicket(idBiglietto,transportRoute.getPublicTransport().getId().toString());
+
+
+                        break;
+                    }
+                    case 2:{
+                        System.out.println("Hai effettuato la tratta scelta");
+                        break;
+                    }
+                    default:{
+                        System.out.println("Selezione non valida");
+                        break;
+                    }
+
+                }
             }
 
-            case 7:
-                break;
-            default:
-                System.out.println("Scelta non valida");
+            case 7: break;
+            default:   System.out.println("Scelta non valida");
         }
     }
 
