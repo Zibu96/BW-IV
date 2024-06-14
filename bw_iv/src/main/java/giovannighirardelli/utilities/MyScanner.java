@@ -42,7 +42,7 @@ public class MyScanner {
                 case 1: {
                     int elem = 0;
 
-                    while (elem != 4)  {
+                    while (elem != 4) {
                         System.out.println("Quale operazione vuoi effettuare?");
 
                         System.out.println("Inserisci 1 per effettuare controlli sui titoli di viaggio");
@@ -160,7 +160,8 @@ public class MyScanner {
                                             break;
                                         }
 
-                                        case 4: break;
+                                        case 4:
+                                            break;
 
                                         default:
                                             System.out.println("Dato inserito non valido");
@@ -172,28 +173,39 @@ public class MyScanner {
 
                             case 2: {
                                 int caso2 = 0;
-                                while (caso2 != 4){
+                                while (caso2 != 4) {
                                     System.out.println("Dimmi quale operazione vuoi effettuare");
                                     System.out.println("Inserisci 1 se vuoi visualizzare tutti i mezzi in servizio o in manutenzione");
                                     System.out.println("Inserisci 2 se vuoi visualizzare lo stato attuale di un particolare mezzo");
                                     System.out.println("Inserisci 3 se vuoi visualizzare lo storico di un particolare mezzo in un periodo di tempo");
                                     System.out.println("Inserisci 4 per tornare indietro");
                                     caso2 = Integer.parseInt(scn.nextLine());
-                                    switch (caso2){
-                                        case 1:{
-                                            publicTransportFuctionsAllTrasportStatusSel(caso2);
+                                    switch (caso2) {
+                                        case 1: {
+                                            int cs = 0;
+                                            while (cs != 3) {
+                                                System.out.println("Vuoi visualizzare tutti i mezzi che sono attualmente in manutenzione o tutti i mezzi in servizio?");
+                                                System.out.println("Digita 1 per visualizzare tutti i mezzi attualmente in manutenzione");
+                                                System.out.println("Digita 2 per visualizzare tutti i mezzi attualmente in servizio");
+                                                System.out.println("Inserisci 3 per tornare indietro");
+                                                cs = Integer.parseInt(scn.nextLine());
+                                                publicTransportFunctionsAllTransportStatusSel(cs);
+                                            }
                                             break;
                                         }
-                                        case 2:
-                                        {
-                                            ptd.getAPublicTransportStatus("");
+                                        case 2: {
+                                            System.out.println("Inserisci l'ID del mezzo di cui vuoi conoscere lo stato");
+                                            String cs1 = scn.nextLine();
+                                            ptd.getAPublicTransportStatus(cs1);
                                             break;
                                         }
-                                        case 3:{
-                                            ptd.getBacklogOfTransportStatus("");
+                                        case 3: {
+                                            System.out.println("Inserisci l'ID del mezzo di cui vuoi conoscere lo storico di servizio e manutenzione");
+                                            String cs2 = scn.nextLine();
+                                            ptd.getBacklogOfTransportStatus(cs2);
                                             break;
                                         }
-                                        case 4:{
+                                        case 4: {
                                             break;
                                         }
                                         default:
@@ -251,18 +263,17 @@ public class MyScanner {
                         switch (el1) {
                             case 1: {
                                 int el2 = 0;
-                                while (el2!=4){
+                                while (el2 != 4) {
                                     System.out.println("Da quale punto vendita vuoi acquistare?");
                                     System.out.println("inserisci 1 per selezionare il rivenditore a Tiburtina");
                                     System.out.println("inserisci 2 per selezionare il rivenditore a Termini");
                                     System.out.println("inserisci 3 per selezionare il rivenditore a Colosseo");
                                     System.out.println("inserisci 4 per tornare indietro");
                                     el2 = Integer.parseInt(scn.nextLine());
-                                    switch (el2){
-                                        case 1:
-                                        {
+                                    switch (el2) {
+                                        case 1: {
                                             int el3 = 0;
-                                            while (el3 !=3) {
+                                            while (el3 != 3) {
                                                 System.out.println("Vuoi acquistare dal rivenditore autorizzato o dal distributore automatico?");
                                                 System.out.println("Inserisci 1 per selezionare il rivenditore autorizzato.");
                                                 System.out.println("Inserisci 2 per selezionare il distributore automatico");
@@ -270,9 +281,8 @@ public class MyScanner {
                                                 el3 = Integer.parseInt(scn.nextLine());
 
                                                 switch (el3) {
-                                                    case 1:
-                                                    {
-                                                        int el4 =0;
+                                                    case 1: {
+                                                        int el4 = 0;
                                                         while (el4 != 4) {
                                                             System.out.println("Che tipo di biglietto vuoi acquistare?");
                                                             System.out.println("Inserisci 1 per selezionare il biglietto ordinario (1,50 €).");
@@ -281,7 +291,7 @@ public class MyScanner {
                                                             System.out.println("inserisci 4 per tornare indietro");
                                                             el4 = Integer.parseInt(scn.nextLine());
 
-                                                            ticketTypeFunctionSel(el4, "Tiburtina", "2419fa42-0b92-44ac-a949-422752214d48" );
+                                                            ticketTypeFunctionSel(el4, "Tiburtina", "2419fa42-0b92-44ac-a949-422752214d48");
 
                                                         }
 
@@ -289,7 +299,7 @@ public class MyScanner {
                                                     }
 
                                                     case 2: {
-                                                        int el5 =0;
+                                                        int el5 = 0;
                                                         while (el5 != 4) {
                                                             System.out.println("Che tipo di biglietto vuoi acquistare?");
                                                             System.out.println("Inserisci 1 per selezionare il biglietto ordinario (1,50 €).");
@@ -298,13 +308,14 @@ public class MyScanner {
                                                             System.out.println("inserisci 4 per tornare indietro");
                                                             el5 = Integer.parseInt(scn.nextLine());
 
-                                                            ticketTypeFunctionSel(el5, "Tiburtina", "492269d4-1d3e-428e-a497-71c996f21e89" );
+                                                            ticketTypeFunctionSel(el5, "Tiburtina", "492269d4-1d3e-428e-a497-71c996f21e89");
 
                                                         }
                                                         break;
                                                     }
 
-                                                    case 3: break;
+                                                    case 3:
+                                                        break;
 
                                                     default:
                                                         System.out.println("Dato inserito non valido");
@@ -312,10 +323,9 @@ public class MyScanner {
                                             }
                                             break;
                                         }
-                                        case 2:
-                                        {
+                                        case 2: {
                                             int el6 = 0;
-                                            while (el6 !=3) {
+                                            while (el6 != 3) {
                                                 System.out.println("Vuoi acquistare dal rivenditore autorizzato o dal distributore automatico?");
                                                 System.out.println("Inserisci 1 per selezionare il rivenditore autorizzato.");
                                                 System.out.println("Inserisci 2 per selezionare il distributore automatico");
@@ -323,9 +333,8 @@ public class MyScanner {
                                                 el6 = Integer.parseInt(scn.nextLine());
 
                                                 switch (el6) {
-                                                    case 1:
-                                                    {
-                                                        int el7 =0;
+                                                    case 1: {
+                                                        int el7 = 0;
                                                         while (el7 != 4) {
                                                             System.out.println("Che tipo di biglietto vuoi acquistare?");
                                                             System.out.println("Inserisci 1 per selezionare il biglietto ordinario (1,50 €).");
@@ -334,7 +343,7 @@ public class MyScanner {
                                                             System.out.println("inserisci 4 per tornare indietro");
                                                             el7 = Integer.parseInt(scn.nextLine());
 
-                                                            ticketTypeFunctionSel(el7,  "Termini", "676cdca1-4bbc-4a82-9640-01499391caa5" );
+                                                            ticketTypeFunctionSel(el7, "Termini", "676cdca1-4bbc-4a82-9640-01499391caa5");
 
                                                         }
 
@@ -342,7 +351,7 @@ public class MyScanner {
                                                     }
 
                                                     case 2: {
-                                                        int el8 =0;
+                                                        int el8 = 0;
                                                         while (el8 != 4) {
                                                             System.out.println("Che tipo di biglietto vuoi acquistare?");
                                                             System.out.println("Inserisci 1 per selezionare il biglietto ordinario (1,50 €).");
@@ -351,13 +360,14 @@ public class MyScanner {
                                                             System.out.println("inserisci 4 per tornare indietro");
                                                             el8 = Integer.parseInt(scn.nextLine());
 
-                                                            ticketTypeFunctionSel(el8, "Termini", "c7bb2c28-de41-48e9-bc1c-00d7fe06f01b" );
+                                                            ticketTypeFunctionSel(el8, "Termini", "c7bb2c28-de41-48e9-bc1c-00d7fe06f01b");
 
                                                         }
                                                         break;
                                                     }
 
-                                                    case 3: break;
+                                                    case 3:
+                                                        break;
 
                                                     default:
                                                         System.out.println("Dato inserito non valido");
@@ -366,20 +376,18 @@ public class MyScanner {
 
                                             break;
                                         }
-                                        case 3:
-                                        {
+                                        case 3: {
                                             int el9 = 0;
-                                            while (el9 !=3) {
+                                            while (el9 != 3) {
                                                 System.out.println("Vuoi acquistare dal rivenditore autorizzato o dal distributore automatico?");
                                                 System.out.println("Inserisci 1 per selezionare il rivenditore autorizzato.");
                                                 System.out.println("Inserisci 2 per selezionare il distributore automatico");
                                                 System.out.println("inserisci 3 per tornare indietro");
-                                                el9= Integer.parseInt(scn.nextLine());
+                                                el9 = Integer.parseInt(scn.nextLine());
 
                                                 switch (el9) {
-                                                    case 1:
-                                                    {
-                                                        int el10 =0;
+                                                    case 1: {
+                                                        int el10 = 0;
                                                         while (el10 != 4) {
 
                                                             System.out.println("Che tipo di biglietto vuoi acquistare?");
@@ -389,7 +397,7 @@ public class MyScanner {
                                                             System.out.println("inserisci 4 per tornare indietro");
                                                             el10 = Integer.parseInt(scn.nextLine());
 
-                                                            ticketTypeFunctionSel(el10, "Colosseo", "05a2e1dc-653a-42f5-8e55-0cf50427a38d" );
+                                                            ticketTypeFunctionSel(el10, "Colosseo", "05a2e1dc-653a-42f5-8e55-0cf50427a38d");
 
                                                         }
 
@@ -397,7 +405,7 @@ public class MyScanner {
                                                     }
 
                                                     case 2: {
-                                                        int el11 =0;
+                                                        int el11 = 0;
                                                         while (el11 != 4) {
 
                                                             System.out.println("Che tipo di biglietto vuoi acquistare?");
@@ -407,13 +415,14 @@ public class MyScanner {
                                                             System.out.println("inserisci 4 per tornare indietro");
                                                             el11 = Integer.parseInt(scn.nextLine());
 
-                                                            ticketTypeFunctionSel(el11,  "Colosseo", "fe235d37-a3fa-4c6b-966e-47ac76b8c2ea" );
+                                                            ticketTypeFunctionSel(el11, "Colosseo", "fe235d37-a3fa-4c6b-966e-47ac76b8c2ea");
 
                                                         }
                                                         break;
                                                     }
 
-                                                    case 3: break;
+                                                    case 3:
+                                                        break;
 
                                                     default:
                                                         System.out.println("Dato inserito non valido");
@@ -421,7 +430,8 @@ public class MyScanner {
                                             }
                                             break;
                                         }
-                                        case 4: break;
+                                        case 4:
+                                            break;
                                         default:
                                             System.out.println("Dato inserito non valido");
                                     }
@@ -429,8 +439,7 @@ public class MyScanner {
 
                                 break;
                             }
-                            case 2:
-                            {
+                            case 2: {
                                 int sl = 0;
                                 System.out.println("Inserisci l'id della tua tessera.");
                                 String cardId = scn.nextLine();
@@ -441,10 +450,8 @@ public class MyScanner {
                                 System.out.println("inserisci 3 per selezionare il rivenditore a Colosseo");
                                 System.out.println("inserisci 4 per tornare indietro");
                                 sl = Integer.parseInt(scn.nextLine());
-                                switch (sl)
-                                {
-                                    case 1:
-                                    {
+                                switch (sl) {
+                                    case 1: {
                                         int sl1 = 0;
                                         while (sl1 != 3) {
                                             System.out.println("Vuoi acquistare dal rivenditore autorizzato o dal distributore automatico?");
@@ -484,7 +491,8 @@ public class MyScanner {
                                                     break;
                                                 }
 
-                                                case 3: break;
+                                                case 3:
+                                                    break;
 
 
                                                 default:
@@ -535,7 +543,8 @@ public class MyScanner {
                                                     break;
                                                 }
 
-                                                case 3: break;
+                                                case 3:
+                                                    break;
 
                                                 default:
                                                     System.out.println("Scelta non valida");
@@ -545,8 +554,7 @@ public class MyScanner {
                                         break;
                                     }
 
-                                    case 3:
-                                    {
+                                    case 3: {
                                         int sl7 = 0;
                                         while (sl7 != 3) {
                                             System.out.println("Vuoi acquistare dal rivenditore autorizzato o dal distributore automatico?");
@@ -570,8 +578,7 @@ public class MyScanner {
                                                     break;
                                                 }
 
-                                                case 2:
-                                                {
+                                                case 2: {
                                                     int sl9 = 0;
                                                     while (sl9 != 3) {
                                                         System.out.println("Che tipo di abbonamento vuoi acquistare?");
@@ -585,7 +592,8 @@ public class MyScanner {
                                                     break;
                                                 }
 
-                                                case 3: break;
+                                                case 3:
+                                                    break;
 
                                                 default:
                                                     System.out.println("Scelta non valida");
@@ -594,7 +602,8 @@ public class MyScanner {
                                         break;
                                     }
 
-                                    case 4: break;
+                                    case 4:
+                                        break;
 
                                     default:
                                         System.out.println("Scelta non valida");
@@ -618,8 +627,7 @@ public class MyScanner {
                 }
                 case 3: {
                     int caso3 = 0;
-                    while (caso3 !=7)
-                    {
+                    while (caso3 != 7) {
                         System.out.println("Dimmi quale tratta tra quelle qui presenti vuoi effettuare");
                         System.out.println("Inserisci 1 se vuoi effettuare la tratta da Colosseo a Tiburtina");
                         System.out.println("Inserisci 2 se vuoi effettuare la tratta da Colosseo a Termini");
@@ -630,7 +638,7 @@ public class MyScanner {
                         System.out.println("Inserisci 7 per tornare indietro");
                         caso3 = Integer.parseInt(scn.nextLine());
 
-                        routeFunctionsSel(caso3,"", scn);
+                        routeFunctionsSel(caso3, "", scn);
                     }
                     break;
                 }
@@ -640,42 +648,42 @@ public class MyScanner {
         }
     }
 
-    private static void subTypeFunctionSel (int el, String location, String idRetailer, String idCard) {
+    private static void subTypeFunctionSel(int el, String location, String idRetailer, String idCard) {
         EntityManager em = emf.createEntityManager();
         TicketOfficeDao tod = new TicketOfficeDao(em);
         RetailerDao rld = new RetailerDao(em);
         CardDao cd = new CardDao(em);
 
         switch (el) {
-            case 1:
-            {
-                Subscription subscription = new Subscription(location, LocalDate.now(),  rld.findById(idRetailer), SubscriptionType.WEEKLY, cd.findById(idCard));
+            case 1: {
+                Subscription subscription = new Subscription(location, LocalDate.now(), rld.findById(idRetailer), SubscriptionType.WEEKLY, cd.findById(idCard));
                 tod.ticketOfficeSave(subscription);
                 System.out.println("Grazie per l'acquisto!");
                 break;
             }
 
             case 2: {
-                Subscription subscription = new Subscription(location, LocalDate.now(),  rld.findById(idRetailer), SubscriptionType.MONTLY, cd.findById(idCard));
+                Subscription subscription = new Subscription(location, LocalDate.now(), rld.findById(idRetailer), SubscriptionType.MONTLY, cd.findById(idCard));
                 tod.ticketOfficeSave(subscription);
                 System.out.println("Grazie per l'acquisto!");
                 break;
             }
 
-            case 3: break;
+            case 3:
+                break;
 
             default:
                 System.out.println("Dato inserito non valido");
         }
     }
 
-    private static void ticketTypeFunctionSel(int el, String location, String id ) {
+    private static void ticketTypeFunctionSel(int el, String location, String id) {
 
         EntityManager em = emf.createEntityManager();
         TicketOfficeDao tod = new TicketOfficeDao(em);
         RetailerDao rld = new RetailerDao(em);
 
-        switch (el ) {
+        switch (el) {
             case 1: {
                 Ticket ticket = new Ticket(location, LocalDate.now(), rld.findById(id), TicketType.ORDINARY);
                 tod.ticketOfficeSave(ticket);
@@ -697,41 +705,40 @@ public class MyScanner {
                 break;
             }
 
-            case 4: break;
+            case 4:
+                break;
 
             default:
                 System.out.println("Dato inserito non valido");
         }
     }
 
-    public static void publicTransportFuctionsAllTrasportStatusSel (int caso2){
+    public static void publicTransportFunctionsAllTransportStatusSel(int caso2) {
 
-        System.out.println("Vuoi visualizzare tutti i mezzi che sono attualmente in manutenzione o tutti i mezzi in servizio?");
-        System.out.println("Digita 1 per visualizzare tutti i mezzi attualmente in manutenzione");
-        System.out.println("Digita 2 per visualizzare tutti i mezzi attualmente in servizio");
         EntityManager em = emf.createEntityManager();
         PublicTransportDao ptd = new PublicTransportDao(em);
-        switch (caso2){
-            case 1:{
+        switch (caso2) {
+            case 1: {
                 ptd.findAllPublicTransportByStatus(StatePublicTransport.MAINTENANCE);
                 break;
             }
-            case 2:{
+            case 2: {
                 ptd.findAllPublicTransportByStatus(StatePublicTransport.ON_DUTY);
                 break;
             }
+            case 3:
+                break;
             default:
                 System.out.println("Selezione non valida");
                 break;
         }
 
 
-
     }
 
-    public static void routeFunctionsSel (int caso3, String idTratta, Scanner scn){
-        switch (caso3){
-            case 1, 2, 3, 4, 5, 6 :{
+    public static void routeFunctionsSel(int caso3, String idTratta, Scanner scn) {
+        switch (caso3) {
+            case 1, 2, 3, 4, 5, 6: {
                 EntityManager em = emf.createEntityManager();
                 RouteDao rd = new RouteDao(em);
                 System.out.println("Hai selezionato questa tratta");
@@ -741,20 +748,19 @@ public class MyScanner {
                 System.out.println("Seleziona 2 per il abbonamento");
                 int titoloViaggio = 0;
                 titoloViaggio = Integer.parseInt(scn.nextLine());
-                while (true)
-                {
-                    switch (titoloViaggio){
-                        case 1:{
+                while (true) {
+                    switch (titoloViaggio) {
+                        case 1: {
 
                             TicketOfficeDao tod = new TicketOfficeDao(em);
-                            tod.validateTicket("","");
+                            tod.validateTicket("", "");
                             break;
                         }
-                        case 2:{
+                        case 2: {
                             System.out.println("Hai effettuato la tratta scelta");
                             break;
                         }
-                        default:{
+                        default: {
                             System.out.println("Selezione non valida");
                             break;
                         }
@@ -763,8 +769,10 @@ public class MyScanner {
 
             }
 
-            case 7: break;
-            default:   System.out.println("Scelta non valida");
+            case 7:
+                break;
+            default:
+                System.out.println("Scelta non valida");
         }
     }
 
